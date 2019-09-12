@@ -10,5 +10,13 @@
 
 #style: light # dark (default) or light
 
+header_pages:
+  - index.md
+  - peter.md
+  - about.md
+  - contact.md
+
+theme: jekyll-theme-console
+
 plugins:
   - jekyll-seo-tag
