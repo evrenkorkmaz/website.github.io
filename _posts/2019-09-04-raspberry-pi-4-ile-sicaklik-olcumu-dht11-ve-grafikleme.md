@@ -14,7 +14,7 @@ Bu projemizde raspberry pi4&#8217;te DHT11 sıcaklık sensörü ile okuduğumuz 
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspisema-768x1024.jpg" alt="" data-id="227" data-link="http://evrenkorkmaz.xyz/?attachment_id=227" class="wp-image-227" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspisema-768x1024.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspisema-225x300.jpg 225w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspisema.jpg 960w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+    [![raspisema-768x1024.jpg](https://i.postimg.cc/28PDJkv1/raspisema-768x1024.jpg)](https://postimg.cc/ZCF2vhwm)
   </li>
 </ul>
 
@@ -30,7 +30,7 @@ Bu projemizde raspberry pi4&#8217;te DHT11 sıcaklık sensörü ile okuduğumuz 
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspi-1024x576.jpg" alt="" data-id="237" data-link="http://evrenkorkmaz.xyz/?attachment_id=237" class="wp-image-237" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspi-1024x576.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspi-300x169.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspi-768x432.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/raspi.jpg 1280w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+   [![raspi-768x432.jpg](https://i.postimg.cc/NMrVRTJb/raspi-768x432.jpg)](https://postimg.cc/ygsvHJzS)
   </li>
 </ul>
 
@@ -100,7 +100,7 @@ sudo apt-get install docker.io
 sudo systemctl start docker
 sudo docker --version</pre>
 
-Yukarudaki komutları çalıştırdıktan sonra &#8220;**docker &#8211;version**&#8221; ile kontrol ediyoruz. Eğer versiyon bilgisi dönüyorsa sıkıntı yok demektir. Docker kurulumundan sonra ilk olarak Docker ile Influxdb imajını indirip konteyneri run&#8217;lıyoruz. 
+Yukarudaki komutları çalıştırdıktan sonra **docker --version** ile kontrol ediyoruz. Eğer versiyon bilgisi dönüyorsa sıkıntı yok demektir. Docker kurulumundan sonra ilk olarak Docker ile Influxdb imajını indirip konteyneri run&#8217;lıyoruz. 
 
 Komut içerisindeki &#8220;**-d**&#8221; parametresi arkaplanda çalışmasını sağlıyor.  
 **&#8220;-p&#8221;** parametresi port atamaları için. Influxdb&#8217;nin default olarak 8083 portunda çalışsan bir web arayüzü ve 8086 portunda Inluxdb API bulunuyor. Bu portları vererek çalıştırmamız gerekiyor.
@@ -119,7 +119,7 @@ Konteynerimizin arka planda çalıştığını gördük. Şimdi düzgün çalı�
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influxx-1024x455.png" alt="" data-id="246" data-link="http://evrenkorkmaz.xyz/?attachment_id=246" class="wp-image-246" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influxx-1024x455.png 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influxx-300x133.png 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influxx-768x342.png 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influxx.png 1365w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+   [![influxx-768x342.png](https://i.postimg.cc/hv4pGdd2/influxx-768x342.png)](https://postimg.cc/Q9Pp4VS7)e>
   </li>
 </ul>
 
@@ -130,12 +130,12 @@ Bağlantıyı sağladığımızda influxdb&#8217;nin web arayüzü yukarıdaki g
 Database oluşturduktan sonra bu database üzerinden sorgu yapacağımızın için sağ üstteki &#8220;Database:&#8221; kısmından eklediğimiz database&#8217;i seçelim. Şimdilik Influxdb ile işimiz bitti. Şimdi Raspberry e geri dönüp yazdığımız python kodundaki aldığımız dataları oluşturduğumuz database&#8217;e yollayalım. Influxdb&#8217;ye yollayacağımız dataların formatı ve nasıl yollayacağımız ile ilgili döküman mevcut. [influxdb-dataformat](https://docs.influxdata.com/influxdb/v1.7/write_protocols/line_protocol_tutorial/) . Syntax bölümüne bakalım. 
 
 <pre class="wp-block-preformatted"><code>weather,location=us-midwest temperature=82 1465839830100400200 </code>
-<code>|         --------------------     --------------       | </code>
+<code>|         --------------------     --------------       |  </code>
 <code>|                  |                  |                 |  </code>
-<code>|                  |                  |                 | </code>
+<code>|                  |                  |                 |  </code>
 <code>+----------+----+--------+------+---------+----+---------+ </code>
 <code>|measurement    |,tag_set|      |field_set|    |timestamp| </code>
-<code>+----------+----+--------+------+---------+----+---------+</code>
+<code>+----------+----+--------+------+---------+----+---------+ </code>
 </pre>
 
 İlk gireceğimiz değer **measurement key value**. Vigül ile ayıracağımız kısımlar **tag key value**. İlk boşluktan sonraki değer tablomuza eklememiz gereken integer değerler yani **field key values**. Son kısımada timestamp ekleyebiliriz. Bizim data.txt dosyamızda **measurement key value**, bir sonraki adımda ekleyeceğimiz lokasyon bilgisi yani **tag key value** ve son olarakta sensörden okuduğumuz sıcaklık ve nem bilgisini yollayacaz. Timestap&#8217;e ihtiyacımız yok çünkü dataları tek tek yollayacağımız için influxdb üzerinde dataların geldiği zaman bilgisini eklediğinden eklemeye gerek duymuyoruz. Raspberry içerisindeki data.txt&#8217;ye yeniden bakalım. 
@@ -163,7 +163,8 @@ Bu işlemden sonra Influxdb web sayfasında geçip sağ yukarıdan oluşturduğu
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influx-sorgu-1024x240.png" alt="" data-id="257" data-link="http://evrenkorkmaz.xyz/?attachment_id=257" class="wp-image-257" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influx-sorgu-1024x240.png 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influx-sorgu-300x70.png 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influx-sorgu-768x180.png 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/influx-sorgu.png 1365w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+  
+  [![influx-sorgu.png](https://i.postimg.cc/nzXqSGqb/influx-sorgu.png)](https://postimg.cc/cgNKrYDX)
   </li>
 </ul>
 
@@ -204,7 +205,7 @@ sudo docker ps </pre>
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafana.png" alt="" data-id="259" data-link="http://evrenkorkmaz.xyz/?attachment_id=259" class="wp-image-259" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafana.png 749w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafana-300x121.png 300w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+   [![grafana.png](https://i.postimg.cc/wv59pSXh/grafana.png)](https://postimg.cc/473Dv2Fd)
   </li>
 </ul>
 
@@ -212,7 +213,7 @@ Default olarak gelen **user: admin parola:admin**
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/sadasd-1024x145.png" alt="" data-id="260" data-link="http://evrenkorkmaz.xyz/?attachment_id=260" class="wp-image-260" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/sadasd-1024x145.png 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/sadasd-300x43.png 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/sadasd-768x109.png 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/sadasd.png 1297w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+   [![sadasd.png](https://i.postimg.cc/5tqrN1rN/sadasd.png)](https://postimg.cc/1gXBvxPL)
   </li>
 </ul>
 
@@ -222,13 +223,13 @@ Anasayfaya geri dönüp aynı paneldeki &#8220;**New Dashboard**&#8220;a tıklı
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafpanel.png" alt="" data-id="262" data-link="http://evrenkorkmaz.xyz/?attachment_id=262" class="wp-image-262" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafpanel.png 484w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafpanel-300x204.png 300w" sizes="(max-width: 484px) 100vw, 484px" /></figure>
+   [![grafpanel.png](https://i.postimg.cc/mrbwj9dB/grafpanel.png)](https://postimg.cc/SnvCNnFv)
   </li>
 </ul>
 
 <ul class="wp-block-gallery columns-1 is-cropped">
   <li class="blocks-gallery-item">
-    <figure><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafik.png" alt="" data-id="263" data-link="http://evrenkorkmaz.xyz/?attachment_id=263" class="wp-image-263" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafik.png 947w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafik-300x102.png 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/09/grafik-768x260.png 768w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure>
+   [![grafik.png](https://i.postimg.cc/WzM8S7Pp/grafik.png)](https://postimg.cc/V0kXkn62)
   </li>
 </ul>
 
