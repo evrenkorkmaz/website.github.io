@@ -25,11 +25,8 @@ Bu projemizde raspberry pi4&#8217;te DHT11 sıcaklık sensörü ile okuduğumuz 
 
 **Raspberry pi 4 ve DHT11**
 
-<ul class="wp-block-gallery columns-1 is-cropped">
-  <li class="blocks-gallery-item">
    [![raspi-768x432.jpg](https://i.postimg.cc/NMrVRTJb/raspi-768x432.jpg)](https://postimg.cc/ygsvHJzS)
-  </li>
-</ul>
+ 
 
 Bu projemizde raspberry üzerinde takılı grove pi shield kullanıyoruz. Grove pi shieldı kullanmak için github üzerinden [grove pi reposunu](https://github.com/DexterInd/GrovePi) indirerek kullanabiliriz. Repodaki read.me kısmındada olduğu gibi kolay kurulum için aşağıdaki komutları çalıştırarak grove pi shieldı kullanmaya başlayabiliriz.
 
@@ -114,11 +111,8 @@ Konteynerimizin arka planda çalıştığını gördük. Şimdi düzgün çalı�
 
 <pre class="wp-block-preformatted">http://influxdb.sunucu.ip.adresi:8083</pre>
 
-<ul class="wp-block-gallery columns-1 is-cropped">
-  <li class="blocks-gallery-item">
-   [![influxx-768x342.png](https://i.postimg.cc/hv4pGdd2/influxx-768x342.png)](https://postimg.cc/Q9Pp4VS7)e>
-  </li>
-</ul>
+   [![influxx-768x342.png](https://i.postimg.cc/hv4pGdd2/influxx-768x342.png)](https://postimg.cc/Q9Pp4VS7)
+ 
 
 Bağlantıyı sağladığımızda influxdb&#8217;nin web arayüzü yukarıdaki gibi gelmesi lazım. Web arayüzünden database işlemlerini kolayca yapabiliriz. Öncelikle bir database oluşturalım. Query: bölümünün içerisine &#8220;**CREATE DATABASE** db-name&#8221; şeklinde database oluşturabiliriz. Benim oluşturacağım database ismi &#8220;temp&#8221; olacak
 
@@ -158,12 +152,8 @@ Bu işlemden sonra Influxdb web sayfasında geçip sağ yukarıdan oluşturduğu
 
 <pre class="wp-block-preformatted">SELECT * FROM temperature</pre>
 
-<ul class="wp-block-gallery columns-1 is-cropped">
-  <li class="blocks-gallery-item">
   
   [![influx-sorgu.png](https://i.postimg.cc/nzXqSGqb/influx-sorgu.png)](https://postimg.cc/cgNKrYDX)
-  </li>
-</ul>
 
 Yukarıdaki gibi dataların gelip gelmediğini kontrol ettikten sonra bunu otomatik olarak sürekli yollamasını sağlayacak basit bir script yazalım. 
 
@@ -217,19 +207,11 @@ Default olarak gelen **user: admin parola:admin**
 İlk karşımıza çıkan ekranda **&#8220;add data source&#8221;** seçip influxdb&#8217;yi seçiyoruz. Açılan ekrandan URL kısmına influxdb api&#8217;sini (influxdb çalışan sunucunun ip adresi:8086 portu) sonrasında InfluxDB Details&#8211;> Database kısmına database ismini ekleyip kaydedip çıkıyoruz. 
 
 Anasayfaya geri dönüp aynı paneldeki &#8220;**New Dashboard**&#8220;a tıklıyoruz. Çıkan sayfadan &#8220;**New Panel**&#8221; içerisindeki **&#8220;Add Query&#8221;** butonuna tıklıyoruz. Açılan sayfayı aşağıdaki gibi düzenleyip kaydediyoruz. İlk olarak Query kısmından oluşturduğumuz Influxdb&#8217;yi seçmeyi unutmayın(default olandeğil). From kısmında **measurement** kısmına tıklayınca otomatik olarak database&#8217;e yolladığımız temperature key value çıkıyor. Sonrasında field kısmındada yolladığımız değerlerin isimlerini göreceksiniz. Select satırının sonundakı &#8220;+&#8221; işaretinden yeni field ekleyip fazladan tabloya değer ekleyebilirsiniz. Aynı yerden Alias ekleyip bu değerlerin tablodaki isimlerini değiştirebilirsiniz. Bu işlemlerden sonra üsttekki tabloya databasedeki değerlerin geldiğini göreceksiniz.
-
-<ul class="wp-block-gallery columns-1 is-cropped">
-  <li class="blocks-gallery-item">
-   [![grafpanel.png](https://i.postimg.cc/mrbwj9dB/grafpanel.png)](https://postimg.cc/SnvCNnFv)
-  </li>
-</ul>
-
-<ul class="wp-block-gallery columns-1 is-cropped">
-  <li class="blocks-gallery-item">
-   [![grafik.png](https://i.postimg.cc/WzM8S7Pp/grafik.png)](https://postimg.cc/V0kXkn62)
-  </li>
-</ul>
-
+.
+[![grafpanel.png](https://i.postimg.cc/mrbwj9dB/grafpanel.png)](https://postimg.cc/SnvCNnFv)
+.
+[![grafik.png](https://i.postimg.cc/WzM8S7Pp/grafik.png)](https://postimg.cc/V0kXkn62)
+ 
 **SMTP ile Alarm ekleme**
 
 Yazdığımız python koduna bazı eklemeler yaparak sıcaklık ne nem belirli seviyelere yğkseldiğinde veya düştüğünde mail olarak haber vermesini sağlayabiliriz. Bunun için aşağıdaki kodları yazdığımız python koduna ekleyelim.
