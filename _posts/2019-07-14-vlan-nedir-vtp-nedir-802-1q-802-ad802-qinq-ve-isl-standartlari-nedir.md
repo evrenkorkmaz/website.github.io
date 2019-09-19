@@ -12,9 +12,9 @@ categories:
 
 VLAN (Virtual LAN) yerel ağı sanal olarak gruplara bölme ve bu grupları yönetmemizi sağlayan yapıdır.
 
-#### VLAN&#8217;a neden ihtiyaç duyuldu?<figure class="wp-block-image">
+#### VLAN&#8217;a neden ihtiyaç duyuldu?
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/VLAN-1024x624.jpg" alt="" class="wp-image-135" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/VLAN-1024x624.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/VLAN-300x183.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/VLAN-768x468.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/VLAN.jpg 1204w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+[![VLAN-150x150.jpg](https://i.postimg.cc/13dhhWwv/VLAN-150x150.jpg)](https://postimg.cc/4YpFpQ8c)e> 
 
 Yukarıdaki resimde de görüldüğü üzere çok fazla cihazımız var. Bu cihazların her biri aynı broadcast ile internete çıkmaya çalışıyor yada birbirleriyle olan iletişimlerinde ARP protokolü çalıştığında ağdaki bütün cihazlara istek yolluyor ve bütün ağı meşgul ediyor. Kısacası ağdaki **broadcast trafiğini azaltmak** ve **bant genişliğini arttırmak** için kullanılır. 
 
