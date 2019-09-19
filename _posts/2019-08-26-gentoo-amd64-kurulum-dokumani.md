@@ -13,9 +13,9 @@ Gentoo, kaynak kod temelli bir Linux dağıtımıdır. Kaynak kod tabanlı kurul
 
 #### Kurulum
 
-Gentoo imajını USB bellek veya CD ile boot ettikten sonra karışımıza aşağıdaki ekran geliyor.<figure class="wp-block-image">
+Gentoo imajını USB bellek veya CD ile boot ettikten sonra karışımıza aşağıdaki ekran geliyor.
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/08/gento-login.png" alt="" class="wp-image-196" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/08/gento-login.png 723w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/08/gento-login-300x157.png 300w" sizes="(max-width: 723px) 100vw, 723px" /> </figure> 
+[![gento-login.png](https://i.postimg.cc/TwsSDhYf/gento-login.png)](https://postimg.cc/KknJXGMH)
 
 **boot:** olarak gelen satırda kernel ve hardware option ekleme kısmı geliyor.  
 Seçebileceğimiz kerneller:  
