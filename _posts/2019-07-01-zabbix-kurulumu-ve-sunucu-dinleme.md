@@ -107,14 +107,24 @@ Kurulum için gelmesi gereken sayfalar aşağıda.
 [![setup2.jpg](https://i.postimg.cc/XYvYLC7b/setup2.jpg)](https://postimg.cc/2VPY83Zc) 
 
 Database ismini kurduğumuz ismi yazıp parola tanımlıyoruz. 
+
+.
 [![setup3.jpg](https://i.postimg.cc/fTG8jxv3/setup3.jpg)](https://postimg.cc/xcPG9NhY)
+
+.
 [![setup4.jpg](https://i.postimg.cc/3RNjHRB5/setup4.jpg)](https://postimg.cc/WFRqGsCX)
+
+.
 [![setup5.jpg](https://i.postimg.cc/ZKtf68HW/setup5.jpg)](https://postimg.cc/G9KJCsZR)
 
 Kurulumu tamamladıktan sonra karışımıza login ekranı geliyor. Eğer gelmediyse login ekranına [http://server\_login\_ip/zabbix/index.php](http://34.90.201.174/zabbix/index.php) ile ulaşabilirsiniz. Eğer girdiğiniz kullanıcı adı ve parola ile giriş yapamadıysanız default olarak gelen id ve parolayı deneyebilirsiniz.  
 **Username: admin  
 Parola : zabbix** <figure class="wp-block-image">
+
+.
 [![login.jpg](https://i.postimg.cc/B6f8mnVB/login.jpg)](https://postimg.cc/mcV2DBRP)
+
+.
 [![dashbord.jpg](https://i.postimg.cc/BvTZQcm2/dashbord.jpg)](https://postimg.cc/gw0bgRF0)
 
 Zabbix-agent kurulumundan sonra **nasıl host eklendiğinden** bahsedicem.
@@ -162,12 +172,17 @@ Eğer hata yoksa agent kurulumunu başarıyla tamamlamışız. Fakat tabiki hata
 
 Configuration sekmesinin altındaki host sekmesine giriyoruz ve Create Host butonuna tıklıyoruz
 
+.
 [![host1-1.jpg](https://i.postimg.cc/nMbwz7RQ/host1-1.jpg)](https://postimg.cc/jnch3Wrs)
 
 Gelen ekranda monitörleme yaparken cihazı hangi isimle göreceğimizi yazıyoruz. Grup kısmına linux server ekleyebilirsiniz. IP adresi olarakta monitörleme yapmak istediğimiz, zabbix-agent kurulu olan sunucunun ip adresini giriyoruz.
+
+.
 [![host2-1.jpg](https://i.postimg.cc/PxD7k2Kk/host2-1.jpg)](https://postimg.cc/WF28GmQ9)
 
 Ardından Templates eklememiz gerekiyor. Templates&#8217;ler bize Zabbix&#8217;in kendi içerisinde bulunan şablonları sunucumuzu monitörlerken kullanmamız için olanak sağlıyor. İnternetten Custom Template bulup onlarıda ekleyebiliriz. İlk olarak deneme amaçlı OS Linux template ekliyoruz. Daha sonra başka template eklemesi yapabilirsiniz.
+
+.
 [![host3-1.jpg](https://i.postimg.cc/xTf6sfrQ/host3-1.jpg)](https://postimg.cc/hhY8vqPZ)
 [![host4-1.jpg](https://i.postimg.cc/3JNg4d5k/host4-1.jpg)](https://postimg.cc/ppN93Vdv)
 [![host5-1.jpg](https://i.postimg.cc/ydnZWzLh/host5-1.jpg)](https://postimg.cc/FddRnw51)
@@ -176,10 +191,12 @@ Hostumuzu Ekledikten sonra yine hosts sekmesinin altından kontrol edebiliriz. S
 **Eğer uzun süre beklediniz ve ZBX ışığı yanmadı ise** zabbix-agent kurulumunuzda hata vardır. &#8220;systemctl status zabbix-agent&#8221; agent servisini kontrol edin veya conf dosyalarınızadaki ip adresi ile host oluştururken kullandığınız ip adreslerinin doğruluğunu kontrol edin.  
 **Eğer ZBX butonu kırmızı yanıyıor ise** Zabbix ile zabbix-agent bağlantısı var ama conf dosyalarında bir hata olabilir. Faremizi kırmızı butonun üzerine getirdiğimizde ayrıntılı olarak hatayı öğrenebilirsiniz.  
 
+.
 [![host7-1.jpg](https://i.postimg.cc/K8n4R2zK/host7-1.jpg)](https://postimg.cc/xX194BLY)
 
 ZBX butonu yeşil yanıyorsa bağlantı sağlanmış demektir. Şimdi monitörleme zamanı.
 
 Monitoring sekmesinin altından Graphs sekmesine giriyoruz. Monitörlemek istediğimiz sunucu ve hangi grafiği görmek istediğimizi seçiyoruz. Eğer grafik boş ise biraz beklemeniz lazım.
 
+.
 [![monitor111.jpg](https://i.postimg.cc/K8Jjn5PF/monitor111.jpg)](https://postimg.cc/75Jq40tQ)
