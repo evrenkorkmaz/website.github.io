@@ -12,11 +12,8 @@ categories:
 
 Bu projemizde raspberry pi4&#8217;te DHT11 sıcaklık sensörü ile okuduğumuz dataları, google cloudda açtığımız sunucudaki influxdb container&#8217;a yollayıp bu datalarla yine aynı sunucumuzdaki grafana container&#8217;ı ile grafikleme yapıcaz.
 
-<ul class="wp-block-gallery columns-1 is-cropped">
-  <li class="blocks-gallery-item">
-    [![raspisema-768x1024.jpg](https://i.postimg.cc/28PDJkv1/raspisema-768x1024.jpg)](https://postimg.cc/ZCF2vhwm)
-  </li>
-</ul>
+[![raspisema-768x1024.jpg](https://i.postimg.cc/28PDJkv1/raspisema-768x1024.jpg)](https://postimg.cc/ZCF2vhwm)
+
 
 **Projede kullanılacak araçlar:**
 
