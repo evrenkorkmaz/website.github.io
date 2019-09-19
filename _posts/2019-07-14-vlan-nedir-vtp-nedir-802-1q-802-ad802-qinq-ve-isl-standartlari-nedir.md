@@ -124,7 +124,7 @@ VTP alan adı değişikliği, kendi revizyon numarasından yüksek bir revizyon 
 
 GVRP, network cihazları arasında Vlan bilgilerini aktarmamızı sağlayan IEEE tarafından 802.1Q standartı üzerinde geliştirilmiş bir uygulamadır. VTP ile aynı işi yapar fakat GVRP farklı markalı cihazlardada çalışabilecek şekilde geliştirilmiştir.
 
-GVRP, Vlan bilgilerini taşımak için GARP&#8217;ı kullanır. GARP protokolü bir takım özellikleri GARP PDU içrisinde duyurulması temelli bir uygulamadır. GARP başka protokoller tarafından kullanılarak yapılması gereken işlevleri gerçekleştirir. GVRP&#8217;de GARP PDU&#8217;larının içerisinde Vlan bilgileri taşınır. Bu sayede Vlan bilgileri paylaşılır. 
+GVRP, Vlan bilgilerini taşımak için GARP&#8217;ı kullanır. GARP protokolü bir takım özellikleri GARP PDU içrisinde duyurulması temelli bir uygulamadır. GARP başka protokoller tarafından kullanılarak yapılması gereken işlevleri gerçekleştirir. GVRP'de GARP PDU&#8217;larının içerisinde Vlan bilgileri taşınır. Bu sayede Vlan bilgileri paylaşılır. 
 
 GVRP, 802.1Q Trunk Portlar üzerinde çalışır ve Gvrp çalıştıran bu portlara GVRP katılımcıları denir. Katılımcı portlara otomatik olarak Vlan atanır veyaz kaldırılır.
 
@@ -192,9 +192,9 @@ ISO Modelinde Data Link (Layer2) katmanında çalışır ve trafik sırasında g
 
 Bu protokol 90 Byte&#8217;lık bir kapsülleme işlemi yapar. 26 byte header ve kalan 4 Byte alt bilgidir (Trailer FCS). Başlığa ayrılan 26 Byte&#8217;ın 15 Byte&#8217;lık kısmı Vlan tanıtımı olarak adlandırılmıştır. Her frame kaynak ve hedef Vlan numarası etiketlenir.Ayrıca alıcı ve verici switchlerin fiziksel adresleride bu kısımda bulunur. 
 
-ISL Ethernet frame üzerinde herhangi bir değişiklik yapmaz. Eklemesi gereken bilgileri Ethernet Frame&#8217;in başına ve sonuna ekler ve bu yüzden oldukça güvenlidir. <figure class="wp-block-image">
+ISL Ethernet frame üzerinde herhangi bir değişiklik yapmaz. Eklemesi gereken bilgileri Ethernet Frame&#8217;in başına ve sonuna ekler ve bu yüzden oldukça güvenlidir. 
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/ısl.gif" alt="" class="wp-image-144" /> </figure> 
+[![sl.gif](https://i.postimg.cc/fTcX3FBr/sl.gif)](https://postimg.cc/JGhtvTwN)
 
 ISL tarafından eklenen verilerle birlikte Frame boyutu 1548 Byte olur. Bu kapsülleme standartları için yüksek bir değer. Boyutu büyük olmasına rağmen trafikte herhangi bir gecikmeye neden olmaz. ISL 1000 VLAN&#8217;ı destekler
 
@@ -207,15 +207,15 @@ IEEE tarafından geliştirilen bir kapsülleme standartıdır. ISL den farkı Vl
   * Açık bir standarttır ve farklı markalı cihazlara uyumlu şekilde geliştirilmiştir
   * 4096 Vlan destekler
   * Kapsülleme olmadan 4 Btye&#8217;lık bir tanıtıcı kısmı vardır.
-  * Hedef frame ayrılan alan daha küçüktür.<figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/802.gif" alt="" class="wp-image-145" /> </figure> 
+  * Hedef frame ayrılan alan daha küçüktür.
+.  
+[![802.gif](https://i.postimg.cc/13gQ7x2W/802.gif)](https://postimg.cc/v4dkDKQ9)
 
 Cisco cihazların olduğu bir ağ topolojisinde uyumluluk, güvenlik ve hız gibi nedenlerden dolayı 802.1Q tercih edilir.
 
-#### 802.1Q Tag Format <figure class="wp-block-image">
+#### 802.1Q Tag Format
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/tagging.jpg" alt="" class="wp-image-147" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/tagging.jpg 810w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/tagging-300x22.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/tagging-768x56.jpg 768w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+[![tagging.jpg](https://i.postimg.cc/8zvYrTqV/tagging.jpg)](https://postimg.cc/VJYgxPf7)
 
 Yukarıdaki resim 802.1Q&#8217;nun ethernet frame eklediği bir frame. Frame 16 bitlik bit TPID, 16 bitlik TCI bölümünden oluşur. TCI içerisinde PCP, DEI ve Vlan ID değerleri bulunur.
 
@@ -236,7 +236,7 @@ TPID&#8217;den sonra gelen 16 bitlik alanı oluşturur. Aşağıdaki parçalarda
 1 bitlik bir landır. MAC adresinin canonical olup olmadığını belirtir.  
 (canonical: Mac adresinin düzmü tersten mi yazıldığının bilgisi)  
 0-) canonical 1-)non-Canonical  
-Default olarak &#8220;0&#8221; dır. Günümüz sistemlerinde çok önemli olan bir bilgi değildir.
+Default olarak canonical'dır. Günümüz sistemlerinde çok önemli olan bir bilgi değildir.
 
 #### VLAN Identifier ( VID )
 
@@ -244,16 +244,17 @@ Default olarak &#8220;0&#8221; dır. Günümüz sistemlerinde çok önemli olan 
 
 #### 802.1ad (802.1QinQ) Nedir?
 
-802.1Q&#8217;nun değiştirilmesiyle ortaya çıkmış bir standarttır. .1Q standardından farkı 1 Vlan header eklemek yerine 4 Byte&#8217;lık 2 tane ekler.<figure class="wp-block-image">
+802.1Q&#8217;nun değiştirilmesiyle ortaya çıkmış bir standarttır. .1Q standardından farkı 1 Vlan header eklemek yerine 4 Byte&#8217;lık 2 tane ekler.
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/qinq.jpg" alt="" class="wp-image-149" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/qinq.jpg 578w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/qinq-300x155.jpg 300w" sizes="(max-width: 578px) 100vw, 578px" /> </figure> 
+[![qinq.jpg](https://i.postimg.cc/7b83vrXg/qinq.jpg)](https://postimg.cc/N2D9TV3M)
+
 
 #### Neden 2 tane header&#8217;a ihtıyaç duyuldu
 
 Aynı servis sağlayıcısından hizmet alan şirketler aynı Vlan ID&#8217;lere sahip Vlanları olduğunda paketlerin istenen yerlere ulaşmaması nedeniyle bu standart geliştirilmiştir.
 
-Herkese ayrı Vlan ID ataması mümkün değil. 4096 tane Vlan bu iş için çok yetersiz. QinQ sayesinde servis sağlayıcı adında (SP-Vlan ID &#8211; Service Provider ID) ikinci bir Vlan header kullanarak Vlan paket karışıklığı önlenir.<figure class="wp-block-image">
+Herkese ayrı Vlan ID ataması mümkün değil. 4096 tane Vlan bu iş için çok yetersiz. QinQ sayesinde servis sağlayıcı adında (SP-Vlan ID &#8211; Service Provider ID) ikinci bir Vlan header kullanarak Vlan paket karışıklığı önlenir.
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/qinq-örnek.jpg" alt="" class="wp-image-150" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/qinq-örnek.jpg 686w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/qinq-örnek-300x160.jpg 300w" sizes="(max-width: 686px) 100vw, 686px" /> </figure> 
+[![qinq-rnek.jpg](https://i.postimg.cc/Z5jwN0V2/qinq-rnek.jpg)](https://postimg.cc/dhkRPQMj)
 
 Yukarıdaki şekilde A ve B müşterileri aynı servis sağlayıcısından hizmet almaktadır. A müşterisi 1-100 arası Vlana sahip. B müşterisi ise 1-200 arası Vlanlara sahip. İki müşteride 10 numaralı Vlanlarından istekler yolluyor. Servis sağlayıcı A müşterisi için Vlan 50, B müşterisi için Vlan 100&#8217;ü kullanmaktadır. Bu sayede iki müşteriden de gelen Vlan 10 paketleri karışmadan iletişimini kurabilir. Servis kullanıcısının tanımladığı Vlanı müşteri göremez. Kendi tagging işlemini tamamlayıp yollaması yeterlidir.
