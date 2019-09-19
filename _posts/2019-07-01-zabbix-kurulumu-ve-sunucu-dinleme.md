@@ -98,23 +98,24 @@ Artık zabbix için gerekli olan konfigürasyonları tamamladık. Şimdi zabbix 
 <pre class="wp-block-preformatted">http://zabbix_sunucusunun_ip_adresi/zabbix/
 </pre>
 
-Zabbix kurulum ekranı gelmişse zabbix kurulumunu başarıyla tamamlamışız.<figure class="wp-block-image">
+Zabbix kurulum ekranı gelmişse zabbix kurulumunu başarıyla tamamlamışız.
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup1-1024x613.jpg" alt="" class="wp-image-114" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup1-1024x613.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup1-300x180.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup1-768x460.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup1.jpg 1098w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+[![setup1.jpg](https://i.postimg.cc/g0YrfTKf/setup1.jpg)](https://postimg.cc/w1G6NFZV)
 
-Kurulum için gelmesi gereken sayfalar aşağıda.<figure class="wp-block-image">
+Kurulum için gelmesi gereken sayfalar aşağıda.
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup2-1024x634.jpg" alt="" class="wp-image-116" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup2-1024x634.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup2-300x186.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup2-768x475.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup2.jpg 1104w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+[![setup2.jpg](https://i.postimg.cc/XYvYLC7b/setup2.jpg)](https://postimg.cc/2VPY83Zc) 
 
-Database ismini kurduğumuz ismi yazıp parola tanımlıyoruz. <figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup3-1024x632.jpg" alt="" class="wp-image-117" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup3-1024x632.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup3-300x185.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup3-768x474.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup3.jpg 1105w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> <figure class="wp-block-image"><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup4.jpg" alt="" class="wp-image-118" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup4.jpg 673w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup4-300x185.jpg 300w" sizes="(max-width: 673px) 100vw, 673px" /></figure> <figure class="wp-block-image"><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup5.jpg" alt="" class="wp-image-119" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup5.jpg 687w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/setup5-300x191.jpg 300w" sizes="(max-width: 687px) 100vw, 687px" /></figure> 
+Database ismini kurduğumuz ismi yazıp parola tanımlıyoruz. 
+[![setup3.jpg](https://i.postimg.cc/fTG8jxv3/setup3.jpg)](https://postimg.cc/xcPG9NhY)
+[![setup4.jpg](https://i.postimg.cc/3RNjHRB5/setup4.jpg)](https://postimg.cc/WFRqGsCX)
+[![setup5.jpg](https://i.postimg.cc/ZKtf68HW/setup5.jpg)](https://postimg.cc/G9KJCsZR)
 
 Kurulumu tamamladıktan sonra karışımıza login ekranı geliyor. Eğer gelmediyse login ekranına [http://server\_login\_ip/zabbix/index.php](http://34.90.201.174/zabbix/index.php) ile ulaşabilirsiniz. Eğer girdiğiniz kullanıcı adı ve parola ile giriş yapamadıysanız default olarak gelen id ve parolayı deneyebilirsiniz.  
 **Username: admin  
 Parola : zabbix** <figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/login.jpg" alt="" class="wp-image-120" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/login.jpg 547w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/login-272x300.jpg 272w" sizes="(max-width: 547px) 100vw, 547px" /> </figure> <figure class="wp-block-image"><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/dashbord.jpg" alt="" class="wp-image-121" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/dashbord.jpg 742w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/dashbord-300x164.jpg 300w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure> 
+[![login.jpg](https://i.postimg.cc/B6f8mnVB/login.jpg)](https://postimg.cc/mcV2DBRP)
+[![dashbord.jpg](https://i.postimg.cc/BvTZQcm2/dashbord.jpg)](https://postimg.cc/gw0bgRF0)
 
 Zabbix-agent kurulumundan sonra **nasıl host eklendiğinden** bahsedicem.
 
@@ -157,29 +158,28 @@ Agent servisini yeniden başlattıktan sonra durumunu kontrol edip hata olup olm
 
 Eğer hata yoksa agent kurulumunu başarıyla tamamlamışız. Fakat tabiki hata olup olmadığının kesin sunucumuzu monitörlemek için Zabbix&#8217;e eklediğimizde anlayacağız.
 
-#### Zabbıx&#8217;e Host ekleme ve Monıtörleme
+#### Zabbıx'e Host ekleme ve Monıtörleme
 
-Configuration sekmesinin altındaki host sekmesine giriyoruz ve Create Host butonuna tıklıyoruz<figure class="wp-block-image">
+Configuration sekmesinin altındaki host sekmesine giriyoruz ve Create Host butonuna tıklıyoruz
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host1.1-1024x384.jpg" alt="" class="wp-image-122" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host1.1-1024x384.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host1.1-300x113.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host1.1-768x288.jpg 768w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+[![host1-1.jpg](https://i.postimg.cc/nMbwz7RQ/host1-1.jpg)](https://postimg.cc/jnch3Wrs)
 
-Gelen ekranda monitörleme yaparken cihazı hangi isimle göreceğimizi yazıyoruz. Grup kısmına linux server ekleyebilirsiniz. IP adresi olarakta monitörleme yapmak istediğimiz, zabbix-agent kurulu olan sunucunun ip adresini giriyoruz.<figure class="wp-block-image">
+Gelen ekranda monitörleme yaparken cihazı hangi isimle göreceğimizi yazıyoruz. Grup kısmına linux server ekleyebilirsiniz. IP adresi olarakta monitörleme yapmak istediğimiz, zabbix-agent kurulu olan sunucunun ip adresini giriyoruz.
+[![host2-1.jpg](https://i.postimg.cc/PxD7k2Kk/host2-1.jpg)](https://postimg.cc/WF28GmQ9)
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host2.1-1024x762.jpg" alt="" class="wp-image-123" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host2.1-1024x762.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host2.1-300x223.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host2.1-768x572.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host2.1.jpg 1253w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
-
-Ardından Templates eklememiz gerekiyor. Templates&#8217;ler bize Zabbix&#8217;in kendi içerisinde bulunan şablonları sunucumuzu monitörlerken kullanmamız için olanak sağlıyor. İnternetten Custom Template bulup onlarıda ekleyebiliriz. İlk olarak deneme amaçlı OS Linux template ekliyoruz. Daha sonra başka template eklemesi yapabilirsiniz.<figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host3.1-1024x417.jpg" alt="" class="wp-image-124" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host3.1-1024x417.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host3.1-300x122.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host3.1-768x313.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host3.1.jpg 1071w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> <figure class="wp-block-image"><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host4.1-1024x595.jpg" alt="" class="wp-image-125" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host4.1-1024x595.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host4.1-300x174.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host4.1-768x446.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host4.1.jpg 1416w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure> <figure class="wp-block-image"><img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host5.1-1024x493.jpg" alt="" class="wp-image-126" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host5.1-1024x493.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host5.1-300x144.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host5.1-768x370.jpg 768w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host5.1.jpg 1416w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /></figure> 
+Ardından Templates eklememiz gerekiyor. Templates&#8217;ler bize Zabbix&#8217;in kendi içerisinde bulunan şablonları sunucumuzu monitörlerken kullanmamız için olanak sağlıyor. İnternetten Custom Template bulup onlarıda ekleyebiliriz. İlk olarak deneme amaçlı OS Linux template ekliyoruz. Daha sonra başka template eklemesi yapabilirsiniz.
+[![host3-1.jpg](https://i.postimg.cc/xTf6sfrQ/host3-1.jpg)](https://postimg.cc/hhY8vqPZ)
+[![host4-1.jpg](https://i.postimg.cc/3JNg4d5k/host4-1.jpg)](https://postimg.cc/ppN93Vdv)
+[![host5-1.jpg](https://i.postimg.cc/ydnZWzLh/host5-1.jpg)](https://postimg.cc/FddRnw51)
 
 Hostumuzu Ekledikten sonra yine hosts sekmesinin altından kontrol edebiliriz. Sağ taraftaki ZBX butonu yeşil yanıyor ise host ekleme işlemini de tamamlamışız demektir. Işığın yanması için biraz beklememiz gerekiyor.  
 **Eğer uzun süre beklediniz ve ZBX ışığı yanmadı ise** zabbix-agent kurulumunuzda hata vardır. &#8220;systemctl status zabbix-agent&#8221; agent servisini kontrol edin veya conf dosyalarınızadaki ip adresi ile host oluştururken kullandığınız ip adreslerinin doğruluğunu kontrol edin.  
 **Eğer ZBX butonu kırmızı yanıyıor ise** Zabbix ile zabbix-agent bağlantısı var ama conf dosyalarında bir hata olabilir. Faremizi kırmızı butonun üzerine getirdiğimizde ayrıntılı olarak hatayı öğrenebilirsiniz.  
-<figure class="wp-block-image">
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host7.1-1024x122.jpg" alt="" class="wp-image-128" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host7.1-1024x122.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host7.1-300x36.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/host7.1-768x92.jpg 768w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+[![host7-1.jpg](https://i.postimg.cc/K8n4R2zK/host7-1.jpg)](https://postimg.cc/xX194BLY)
 
 ZBX butonu yeşil yanıyorsa bağlantı sağlanmış demektir. Şimdi monitörleme zamanı.
 
-Monitoring sekmesinin altından Graphs sekmesine giriyoruz. Monitörlemek istediğimiz sunucu ve hangi grafiği görmek istediğimizi seçiyoruz. Eğer grafik boş ise biraz beklemeniz lazım.<figure class="wp-block-image">
+Monitoring sekmesinin altından Graphs sekmesine giriyoruz. Monitörlemek istediğimiz sunucu ve hangi grafiği görmek istediğimizi seçiyoruz. Eğer grafik boş ise biraz beklemeniz lazım.
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/monitor111-1024x429.jpg" alt="" class="wp-image-130" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/monitor111-1024x429.jpg 1024w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/monitor111-300x126.jpg 300w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/monitor111-768x322.jpg 768w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure>
+[![monitor111.jpg](https://i.postimg.cc/K8Jjn5PF/monitor111.jpg)](https://postimg.cc/75Jq40tQ)
