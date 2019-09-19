@@ -14,7 +14,7 @@ VLAN (Virtual LAN) yerel ağı sanal olarak gruplara bölme ve bu grupları yön
 
 #### VLAN&#8217;a neden ihtiyaç duyuldu?
 
-[![VLAN-150x150.jpg](https://i.postimg.cc/13dhhWwv/VLAN-150x150.jpg)](https://postimg.cc/4YpFpQ8c)e> 
+[![VLAN-768x468.jpg](https://i.postimg.cc/CKZ4X7sH/VLAN-768x468.jpg)](https://postimg.cc/cKSY8Qjr)
 
 Yukarıdaki resimde de görüldüğü üzere çok fazla cihazımız var. Bu cihazların her biri aynı broadcast ile internete çıkmaya çalışıyor yada birbirleriyle olan iletişimlerinde ARP protokolü çalıştığında ağdaki bütün cihazlara istek yolluyor ve bütün ağı meşgul ediyor. Kısacası ağdaki **broadcast trafiğini azaltmak** ve **bant genişliğini arttırmak** için kullanılır. 
 
