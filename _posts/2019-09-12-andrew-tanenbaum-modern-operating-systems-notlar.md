@@ -11,9 +11,9 @@ categories:
 
  * Modern bilgisayarlar; memory,disk,printer,fare,klavye, network interface gibi giriş çıkış aygıtlarından oluşan karmaşık bir sistemdir. Bu karışık sistemin yönetimi **İşletim Sistemleri (Operating System)** sayesinde düzgün bir şekilde çalışır.
 
-  * Aslında bir ikona tıkladığımızda çalışan işletim sistemi değildir fakat ikonun yazılımı işini tamamlamak için işletim sistemini kullanır.<figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/os.png" alt="" class="wp-image-176" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/os.png 599w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/os-300x198.png 300w" sizes="(max-width: 599px) 100vw, 599px" /> </figure> 
+  * Aslında bir ikona tıkladığımızda çalışan işletim sistemi değildir fakat ikonun yazılımı işini tamamlamak için işletim sistemini kullanır.
+  
+[![os.png](https://i.postimg.cc/SRvMqFrZ/os.png)](https://postimg.cc/0K7Qd4hm)
 
   * Yukarıda basit olarak bilgisayar bileşenlerinin olduğu bir tablo mevcut. En alt katman yani Hardware; çipler,boardlar,fare/klavye,monitör gibi fiziksel aygıtlar mevcut.
 
@@ -37,9 +37,9 @@ categories:
   * Çoğu CPU kernel ve user modu kullanır. Kernel moddayken CPU her şeyi çalıştırabilir.,
   * Kullanıcılar ise her zaman user modda çalışır. Bu yüzden kernel üzerinde işlem yapmak yetkileri yoktur. Bu yüzden user modda sistem çağrıları (System Call) kullanılır. User modda kernelde bir işlem yapılcaksa (dosya kopyalama vs.) önce arka planda **Trap** isteği(prodesürü) döner, sonraısnda arka planda kernel moda geçip işini halledip tekrardan user moda geçer. 
 
-**Memory (Bellek)**<figure class="wp-block-image">
+**Memory (Bellek)**
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/os1.png" alt="" class="wp-image-178" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/os1.png 712w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/os1-300x99.png 300w" sizes="(max-width: 712px) 100vw, 712px" /> </figure> 
+[![os1.png](https://i.postimg.cc/k5JXjYND/os1.png)](https://postimg.cc/sMLrxcNR)
 
   * Bilgisayar için en önemli 2. bileşen memory&#8217;dir.
   * Memory hızlı olduğu kadar boyutu büyük ve ucuzda olmalıdır. Yukarıdaki resme dayanarak gelen verileri boyutlarına göre nasıl gruplayıp yöneteceğini bilmesi lazım.
@@ -52,11 +52,12 @@ categories:
   * **EEPROM( Elektrically Erasable PROM)** veya flash memory. Romdaki gibi geçici değil kalıcı olarak verileri saklar. Veriler silinip yeniden yazılabilir ve hem okuma hemde yazma yapar.
   * Flash memory küçük taşınabilir elektronik aletlerde sıkça kullanılır. Bunlar müzik çalar, kameralar vb. cihazlardır. Çok fazla silme işlemi yapılırsa zamanla yıpranır.
 
-**Disk**<figure class="wp-block-image">
+**Disk**
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/disk.png" alt="" class="wp-image-190" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/disk.png 617w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/disk-300x179.png 300w" sizes="(max-width: 617px) 100vw, 617px" /> </figure> 
+[![disk.png](https://i.postimg.cc/V63JHBLT/disk.png)](https://postimg.cc/mzyZP99N)
 
-  * Hiyerarşinin son kısmı disklerdir. Diskler Ramlere göre 2 kat daha ucuz ve 2 kat daha büyüktür. Tek sıkıntı disk üzerindeki verilerin erişiminin yavaş olması ve bununda nedeni mekanik bir çihaz olmasıdır.
+
+* Hiyerarşinin son kısmı disklerdir. Diskler Ramlere göre 2 kat daha ucuz ve 2 kat daha büyüktür. Tek sıkıntı disk üzerindeki verilerin erişiminin yavaş olması ve bununda nedeni mekanik bir çihaz olmasıdır.
   * Diskler 5400,7200,10800 rpm ve daha hızlı dönebilen metal plakalardan olurur.Bilgiler disk üzerindeki eş merkezli halkalar üzerine yazılır. Okuyucu kollar bu halkaların üzerindeki izleri(sektörleri) okuyarak bilgiye erişir.
 
 **I/O Devices (Giriş/Çıkış Aygıtları)**
@@ -79,9 +80,9 @@ categories:
 
 #### İşletim Sistemi Türleri
 
-**MainFrame OS**<figure class="wp-block-image is-resized">
+**MainFrame OS**
 
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/mainframe.jpg" alt="" class="wp-image-182" width="506" height="354" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/mainframe.jpg 620w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/mainframe-300x210.jpg 300w" sizes="(max-width: 506px) 100vw, 506px" /> </figure> 
+[![mainframe.jpg](https://i.postimg.cc/BQNqjBf0/mainframe.jpg)](https://postimg.cc/fJt4FXb2)
 
   * Oda büyüklüğündeki data center&#8217;lar için kullanılır. Bu bilgisayarlar kişisel bilgisayarlardan farklı giriş çıkış kapasitesine sahiptir. 1000 Disk ve milyonlarda Gigabit data bu cihazlar için normal değerlerdir. 
   * Mainframeler, üst düzet web sunucuları,büyük ölcekli ticaret web siteleri için sunucular veya işletmeler arası iletişim için kullanılır.
@@ -107,7 +108,7 @@ categories:
 **Embedded OS**
 
   * Gömülü sitemler bilgisayar olarak görülmeyen ve kullanıcılar tarafından yüklenen yazılımları kabul etmeyen, aygıtları kontrol eden bilgisayarlardır.
-  * Örnek olarak; arabalar,mikrodalga fırınlar, Tv setleri, mp3 çalar bb.
+  * Örnek olarak; arabalar,mikrodalga fırınlar, Tv setleri, mp3 çalar vb.
   * Kısacası el bilgisayarlarından ayıran en büyük özellik güvenilmeyen yazılımları kabul etmemesidir.Mikrodalga fırına yeni bir app yada yazılım yükleyemezsiniz. Kendi yazılımının hepsi ROM&#8217;dadır.
 
 **Sensor-Node OS**
@@ -167,9 +168,9 @@ categories:
 
 **Layered System**
 
-  * Bu sistem mimarisi Monolithic&#8217;den farklı olarak hiyerarşik şekilde sınıflandırılmış katmansal bir yapı içerir.<figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/layered.png" alt="" class="wp-image-186" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/layered.png 507w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/layered-300x140.png 300w" sizes="(max-width: 507px) 100vw, 507px" /> </figure> 
+  * Bu sistem mimarisi Monolithic&#8217;den farklı olarak hiyerarşik şekilde sınıflandırılmış katmansal bir yapı içerir.
+  
+[![layered.png](https://i.postimg.cc/157kxCZf/layered.png)](https://postimg.cc/YhgnYx0H)
 
   * Bu sistemin 6 katmanı mevcut. İlk yanı 0. katman kesicilerin meydana geldiği yada zamanlayıcıların süresi dolduğu zamankisüreçleride geçiş yapan işlemcinin tahsis edilmesiyle ilgilidir. Kısacası 0. katman CPU&#8217;ya çoklu işlem sağlamaktadır.
   * 1. Katman; hafıza yönetimi için. Main memorydebulunmayan işlemler için Main memory&#8217;de yer ayırma işlemini yapar.
@@ -192,9 +193,9 @@ categories:
 
 **Vm/370**
 
-  * IBM tarafından geliştirilmiş bir işletim sistemidir. Birden fazla kullanıcıya erişim izni veren ve hepsine farklı işletim sistemleri sağlayabilen bir sistemdir. Saf donanım üzerine(bare hardware) kurularak kullanılır. Her sanal makine doğrudan donanımı kullanabilir.<figure class="wp-block-image">
-
-<img src="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/vm.png" alt="" class="wp-image-188" srcset="http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/vm.png 748w, http://evrenkorkmaz.xyz/wp-content/uploads/2019/07/vm-300x107.png 300w" sizes="(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px" /> </figure> 
+  * IBM tarafından geliştirilmiş bir işletim sistemidir. Birden fazla kullanıcıya erişim izni veren ve hepsine farklı işletim sistemleri sağlayabilen bir sistemdir. Saf donanım üzerine(bare hardware) kurularak kullanılır. Her sanal makine doğrudan donanımı kullanabilir.
+  
+  [![vm.png](https://i.postimg.cc/X7B8JQCZ/vm.png)](https://postimg.cc/BXsD75Ns)
 
 Vm/370 üzerinde sanal olarak birden fazla CMS(Conversational Monitor System) kurularak kullanıcılara birden fazla sanal işletim sistemi sağlar. CMS programcılar tarafından popüler ve çoğunla tercih edilem bir sanal makinedir. 
 
