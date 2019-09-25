@@ -5,7 +5,7 @@ layout: post
 categories:
 ---
 
-#Kubernetes Nedir?
+# Kubernetes Nedir?
 
 Kubernetes, Google tarafından Go dili ile geliştirilen "Cloud Native Computing Foundation" tarafından desteklenen, mevcut konteyner haline getirilmiş uygulamaları 
 otomatik deploy eden, sayılarını arttırıp-azaltmak gibi işlemleri yapabildiğimiz bir konteyner kümeleme (conteyner cluster) aracıdır.
@@ -17,7 +17,7 @@ bu yapıları (oluşturduğumuz konteynerları), kubernetes  taşınabilir bir o
 Docker'da aslında bu işlemleri yapabilir fakat kubernetes bazı ihtiyaçlar doğrultusunda ortaya çıkmıştır. Operasyonel işi zor ve maliyetli olan scaling,rollback,
 auto deploymen secure discovery gibi pek çok işlemi kolayca ve tek bir elden halletme imkanı sağlar.
 
-###Kunbernetes Yapısı
+### Kunbernetes Yapısı
 
 [![node-yap-s.png](https://i.postimg.cc/qq6BBt5D/node-yap-s.png)](https://postimg.cc/9wVHJfVy)
 
@@ -28,46 +28,46 @@ Bu yapı kendi içerisinde Overlay denen bir network ile haberleşir.
 [![node.png](https://i.postimg.cc/fbS8KD1n/node.png)](https://postimg.cc/3y7jr5Kn)
 .
 
-##Master Node Yapısı 
+## Master Node Yapısı 
 
 
 [![master-node.png](https://i.postimg.cc/VkwJLRBx/master-node.png)](https://postimg.cc/xcsf6LZ5)
 .
 
-###API Server 
+### API Server 
 
 Master Node'a gelen bütün Rest Requestlerin yönetilmesinden sorumludur. Aslında clusterın(kümenin) beynidir.
 
-###Control Manager 
+### Control Manager 
 
 Temel olarak bir denetleyicidir. Clusterın (kümenin) durumunu API ile izler ve istendiğinde, geçerli durumu istenen duruma hareket ettirmek için gerekli değişiklikleri yapar.
 
-###Scheduler
+### Scheduler
 
 Bir Pod'un hangi node üzerinde çalışacağına karar verir ve Kubeleti tetikler ve ilgili Pod ve içerisindeki konteyneri oluşturur. Yeni bir pod oluşturma isteğine karşı API serveri dinler.
 
-###etcd
+### etcd
 
 Tutarlı ve izlenebilir bir key value store(nosql database) denebilir.
 
-#Kubernetes Node'ların (Minion Node) Yapısı
+# Kubernetes Node'ların (Minion Node) Yapısı
 
 [![minion-node.png](https://i.postimg.cc/qRWRfXvZ/minion-node.png)](https://postimg.cc/phYxzj8D)
 .
 
-###Kubelet
+### Kubelet
 
 Node üzerinde çalışan bir ajandır. API'dan gelen istekleri bekler, ilgili docker servisi ile konuşarak pod'u ayağa kaldırır ve bilgiyi API'ya iletir.
 
-###Kube-Proxy
+### Kube-Proxy
 
 Kubernetes networkü. Podlarla ilgili IP adresleri proxy ile atanır. Pod içerisindeki konteynerlar aynı IP adreslerini kullanır.
 
-###Container Engine
+### Container Engine
 
 Konteyner yönetimi yapar. İmajları ilgili Registery üzerinden çeker ve konteynerların start-stop olmasını sağlar.
 
-###POD
+### POD
 
 [![pod.png](https://i.postimg.cc/JzSdkstC/pod.png)](https://postimg.cc/LJBTd6zx)
 .
@@ -75,21 +75,21 @@ Konteynerların çalışma alanıdır. Podlar içerisinde birden fazla konteyner
 Bu pod'un çalıştığı bilgisi geldğinde eski pod öldürülür. Bu durumda pod içerisinde birden fazla konteyner var ise bu durumdan diğerleride etkileneceğinden, pod içerisinde 1 konteyner çalıştırılması önerilir.
 Pod öldüğünde geri kalkmaz. Aynı imajdan yerine yeni bir pod kaldırılır.
 
-##Kuberbetes ile ilgli bazı terimler.
+## Kuberbetes ile ilgli bazı terimler.
 
-###Replicaset
+### Replicaset
 
 Bir pod'dan kaç tane oluşturulacağını (kaç kopya olacağı)belittiğimiz bölüm. İstedğimiz anda elimizdeki podları çoğaltabilir veya azaltabiliriz.
 
-###Namespace
+### Namespace
 
 Yukarıdada belirttiğimiz gibi Kubernetes, konteyner kümelerinden oluşur(podlar gibi). Bu kümelere isim ataması yapılan bölüm.
 
-###Service 
+### Service 
 
 Podlara gelen istekleri karşılayıp arka tarafa(podlara) gönderen katman.
 
-###Kubernetes Çalışma mantığı
+### Kubernetes Çalışma mantığı
 
 [![kuber-calima.png](https://i.postimg.cc/85jfWzYM/kuber-calima.png)](https://postimg.cc/ZBzqz445)
 .
@@ -106,7 +106,7 @@ Podlara gelen istekleri karşılayıp arka tarafa(podlara) gönderen katman.
 10- Kubelet ,pod’un yaratıldığını ve pod durumunu API Server’a iletir.
 11- API Server pod’un yeni durumunu etcd’ye yazar.
 
-##Minikube
+## Minikube
 
 Kendi fiziksel bilgisayarımızda kubernetesi denememiz için sanallaştırma yapan araçtır. Bu araç sayesinde kendi bilgisayarımız üzerinde kubernetesi kurup üzerinde işlemler yaparak nasıl kullanıldığını öğrenebilir yada yaptığımız cluster'ı  kendi bilgisayarımızdan denemelerini-testlerini yapmamıza olanak sağlar.
 Bu sanallaştırma için virtualbox,KVM gibi sanallaştırma yazılımlarımızın olması gerekiyor. 
