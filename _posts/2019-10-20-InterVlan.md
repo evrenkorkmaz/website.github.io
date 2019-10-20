@@ -88,7 +88,7 @@ Building configuration...
 Konfigürasyonlar bittikten sonra client'lerime ip ve gateway atıyorum. Ardından ping atıyorum.
 Atadığım gateway router konfigürasyonunda interfacelere verdiğim ipler.
 
-[![ipatama.png](https://i.postimg.cc/d02Brmph/ipatama.png)](https://postimg.cc/nsLBt7Hx)
+[![ipatama.png](https://i.postimg.cc/wjkk6YdV/ipatama.png)](https://postimg.cc/Xrp58hqG)
 [![ping.png](https://i.postimg.cc/1R2qRV72/ping.png)](https://postimg.cc/pyQTqrHJ)
 
 Ping atarken wireshark paketlerime bakıp inceleme yapıyorum.
