@@ -89,11 +89,10 @@ Konfigürasyonlar bittikten sonra client'lerime ip ve gateway atıyorum. Ardınd
 Atadığım gateway router konfigürasyonunda interfacelere verdiğim ipler.
 
 [![ipatama.png](https://i.postimg.cc/wjkk6YdV/ipatama.png)](https://postimg.cc/Xrp58hqG)
-[![ping.png](https://i.postimg.cc/1R2qRV72/ping.png)](https://postimg.cc/pyQTqrHJ)
-
+[![ping.png](https://i.postimg.cc/C56WrncR/ping.png)](https://postimg.cc/m1CXtkf4)
 Ping atarken wireshark paketlerime bakıp inceleme yapıyorum.
 
-[![wire.png](https://i.postimg.cc/g0gsky78/wire.png)](https://postimg.cc/QBW1f7hd)
+[![wire.png](https://i.postimg.cc/KzYfpG4V/wire.png)](https://postimg.cc/94vyrjdt)
 
 Wireshark üzerinde de görüldüğü gibi aynı switch üzerinde bağlı iki vlanın haberleşmesi sorunsuz çalışıyor.
 Wireshark'dan paketleride incelicek olursak;
@@ -181,9 +180,9 @@ ESW1(config-if)#exit
 
 Konfigürasyondan sonra clientlere ip ataması yapıp ping atıyoruz.
 
-[![ipatama.png](https://i.postimg.cc/SNGJrf7R/ipatama.png)](https://postimg.cc/zVVzDWQY)
+[![ipatama.png](https://i.postimg.cc/wjkk6YdV/ipatama.png)](https://postimg.cc/Xrp58hqG)
 
-[![wireshrk.png](https://i.postimg.cc/0jP9Mh4f/wireshrk.png)](https://postimg.cc/1nCkb7sn)
+[![wireshrk.png](https://i.postimg.cc/PJWMPP7C/wireshrk.png)](https://postimg.cc/0KNS42Pv)
 
 Wireshark üzerinden paketleri incelemesini yapalım.
 Alt kısımda göreceğiniz gibi paketler 802.1Q ile vlan id'si eklenerek taglaniyor.
