@@ -97,7 +97,6 @@ Ping atarken wireshark paketlerime bakıp inceleme yapıyorum.
 Wireshark üzerinde de görüldüğü gibi aynı switch üzerinde bağlı iki vlanın haberleşmesi sorunsuz çalışıyor.
 Wireshark'dan paketleride incelicek olursak;
 İlk olarak pingi atan client (PC1) ARP paketi yolluyor. Bu paket ulaşmak istediği networke değil, networke ulaşması için gateway adresine yapıyor.
-Aynı ağda olduğunu anladıktan sonra paketi gateway üzerinden farklı bir networke yönlendirmeye çalışıyor.
 Router'a kadar gelen paket, kendi üzerindeki network olduğundan dolayı paketi ilgili interface'e yönlendiriyor.
 Böylece ping işlemi düzgün bir şekilde çalışmasını yapıyor.
 
@@ -115,7 +114,7 @@ Router üzerindeki bir interface'i sub-interfacelere bölerek bu işlemi sağlay
 Örnek olarak vlan10 ve vlan20 şeklinde vlanlarımızın olduğu bir ağda router üzerindeki Fastethernet 0/0 interface'i kullanıcaksak:
 vlan 10 için "router(config)# interface fastEthernet 0/0.10" şeklinde bu interface'e giriş yapabiliriz.
 Açılan interface 0/0.10 olmak zorunda değil. Sadece kullanım kolaylığı ve hatırlanması açısından vlan numarası ile aynı isimde interface kullanmak daha mantıklı.
-Interface vlan numarası ile aynı olmak zorunda değil ama aşağıdaki basit topoloji üzerinde yapacağımızda, encapsulation işleminde vereceğimiz numara vlan ile aynı olmalıdır.
+Interface vlan numarası ile aynı olmak zorunda değil ama aşağıdaki basit topoloji üzerinde yapacağımızda, encapsulation işleminde vereceğimiz numara vlan id ile aynı olmalıdır.
 Çünkü router gelen paketleri üzerlerinde bulunan IEEE 802.1Q ile encapsulation edilmiş vlan tag'lerinde bakarak ilgili sub-interface'e yönlendirmesini yapacak.
 
 # Router on a Stick Konfigürasyonu
@@ -129,7 +128,7 @@ R2#configure terminal
 R2(config)#interface fastEthernet 0/0
 R2(config-if)#no shutdown 
 R2(config-if)#exit 
-
+.
 Vlan10 için 0/0.10 interface'i konfigüre edilir.
 Encapsulation işlemi vlan id 10 olarak tanımlanır.
 Interface'in ip adresi, gateway olan Vlan10 networkne ait 192.168.10.1'i tanımlıyoruz.
@@ -138,7 +137,7 @@ R2(config-subif)#encapsulation dot1Q 10
 R2(config-subif)#ip address 192.168.10.1 255.255.255.0
 R2(config-subif)#no shutdown 
 R2(config-subif)#exit
-
+.
 Aynı şekilde 0/0.20 interface konfigürasyonu.
 R2(config)#interface fastEthernet 0/0.20
 R2(config-subif)#encapsulation dot1Q 20
@@ -153,7 +152,7 @@ ESW1#configure terminal
 ESW1(config)#interface fastEthernet 0/0
 ESW1(config-if)#switchport mode trunk 
 ESW1(config-if)#exit 
-
+.
 Vlanları oluşturup, clientlara bağlı portları yapılandırıyoruz.
 ESW1#vlan database 
 ESW1(vlan)#vlan 10 
