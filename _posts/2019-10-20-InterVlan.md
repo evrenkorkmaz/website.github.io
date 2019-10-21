@@ -23,7 +23,7 @@ Bu Intervlan türünde router ve switch üzerinde her vlan için interface açı
 Router tarafında bu interface'leri açıp o portu kullanacak vlan'ın ip adresi ve subnet bilgisini girmek yeterli.
 Switch tarafında ise önce bu vlanları oluşturup router ve client'e bağlı olan portlarını access mode yapmamız yeterli.
 
-#Tradidional InterVlan Konfigürasyonu
+# Tradidional InterVlan Konfigürasyonu
 Traditional InterVlan'ı denek için basit bir proje oluşturdum.
 Bu projede 2 tane vlan olacak:
 Vlan10 - 192.168.10.0/24
@@ -86,8 +86,8 @@ Building configuration...
 [OK]
 
 Konfigürasyonlar bittikten sonra client'lerime ip ve gateway atıyorum. Ardından ping atıyorum.
-Atadığım gateway router konfigürasyonunda interfacelere verdiğim ipler.
-
+Atadığım gateway, router konfigürasyonunda interfacelere verdiğim ipler.
+.
 [![ipatama.png](https://i.postimg.cc/wjkk6YdV/ipatama.png)](https://postimg.cc/Xrp58hqG)
 [![ping.png](https://i.postimg.cc/C56WrncR/ping.png)](https://postimg.cc/m1CXtkf4)
 Ping atarken wireshark paketlerime bakıp inceleme yapıyorum.
@@ -96,7 +96,7 @@ Ping atarken wireshark paketlerime bakıp inceleme yapıyorum.
 
 Wireshark üzerinde de görüldüğü gibi aynı switch üzerinde bağlı iki vlanın haberleşmesi sorunsuz çalışıyor.
 Wireshark'dan paketleride incelicek olursak;
-İlk olarak pingi atan client (PC1) ARP paketi yolluyor fakat herhangi bir dönüş alamıyor.
+İlk olarak pingi atan client (PC1) ARP paketi yolluyor. Bu paket ulaşmak istediği networke değil, networke ulaşması için gateway adresine yapıyor.
 Aynı ağda olduğunu anladıktan sonra paketi gateway üzerinden farklı bir networke yönlendirmeye çalışıyor.
 Router'a kadar gelen paket, kendi üzerindeki network olduğundan dolayı paketi ilgili interface'e yönlendiriyor.
 Böylece ping işlemi düzgün bir şekilde çalışmasını yapıyor.
