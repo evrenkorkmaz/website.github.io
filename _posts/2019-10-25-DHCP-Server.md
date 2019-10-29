@@ -69,7 +69,7 @@ Virgül ile birden fazla DNS tanımlayabiliriz.
 İsimlerindende anlaşılacağı gibi lease time sürelerinin tanımlanması.
 
 Sonasında ip yapılandırması için aşağıdakine benzer bir fonksiyonları dosyanın sonuna ekliyoruz.
-
+.   
 subnet 192.168.10.0 netmask 255.255.255.0 {
 range 192.168.10.150 192.168.10.170;
 option subnet-mask 255.255.255.0;
@@ -84,28 +84,28 @@ range 192.168.20.150 192.168.20.170;
 option subnet-mask 255.255.255.0;
 option routers 192.168.20.1;
 option broadcast-address 192.168.20.255;
-default-lease-time 600;
+default-lease-time 600; 
 max-lease-time 7200;
 }
 
 subnet 192.168.30.0 netmask 255.255.255.0 { }
-
+ . 
 Satır satır inceliyecek olursak;
 
 # subnet 192.168.0.0 netmask 255.255.255.0 {
 Burada ip atamasi yapmasını istediğimiz netwok bilgisini ve subnet-mask tanımlamasını yapıyoruz.
 
-#range 192.168.0.150 192.168.0.170;
+# range 192.168.0.150 192.168.0.170;
 DHCP ile verebileceğimiz ip adresles aralığını tanımlıyoruz. 
 Bu tanımlamanın sebebi özel durumlarda static olarak ip tanımlaması yapılan cihazlarla ip çakışmaması için duruma göre bir aralık tanımlama imkanımız var.
 
 # option subnet-mask 255.255.255.0;
 Cihaz tarafından alınacak subnet-mask bilgisi
 
-#option routers 192.168.0.1;
+# option routers 192.168.0.1;
 router adresi yani gateway bilgisi
 
-#option broadcast-address 192.168.0.255;
+# option broadcast-address 192.168.0.255;
 broadcast adresi
 
 #default-lease-time 600;
@@ -118,10 +118,10 @@ Yukarıdada bahsettiğim gibi bu sürenin yarısında Client'tan süreyi uzatma 
 İçi boş olan bu fonksiyonun amacı; 
 Yukarıdada belittiğim gibi DHCP sunucu İçinde olmadığı networklere ip ataması yapıcak.
 Kurduğumuz DHCP servisinin çalışma mantığından dolayı kendi networkünden gelecek paketleride dinlemek zorunda.
-
+. 
 Bu konfigürasyonlardan sonra kaydedip çıkıyoruz.
 
-#sudo vim /etc/default/isc-dhcp-server
+# sudo vim /etc/default/isc-dhcp-server
 Bu dosya içerisine DHCP sunucusuna gelecek isteklerin hangi ethernet kartından olabileceğinin bilgisini girmemiz gerekiyor.
 # INTERFACES="eth0"  gibi
 Çoklu tanımlama için :
@@ -132,7 +132,7 @@ Bazı cihazlarda yada versiyonlarda bu dosya içerisinde INTERFACESv4-INTERFACES
 
 
 Bir sonraki adım : 
-DHCP server'e static ip tanımlaması
+# DHCP server'e static ip tanımlaması
 # sudo nano /etc/network/interfaces
 
 auto enp0s3
@@ -181,7 +181,7 @@ Bu komut gelen DHCPDISCOVERY paketlerini ip'sini tanımladığımız adrese yön
 Bu adres direk dhcp server'in statip ip adresi yada başka bir ağda ise o ağın ip'si olabilir
 
 
-#service dhcp
+# service dhcp
 Bu komut switch üzerindeki dhcp server ve dhcp relay agent özelliğini aktif eder.
 service dhcp aktif değilse, gelen paketlerin broadcast adreslerini 0.0.0.0 yaparak yönlendirmeyi yapar. Bu yüzden DHCP server isteğin hangi networkten geldiğini anlayamaz.
 
