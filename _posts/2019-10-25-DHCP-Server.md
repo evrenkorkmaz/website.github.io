@@ -1,3 +1,11 @@
+---
+title: "DHCP - DHCP Relay Agent Nedir?"
+date: 2019-10-29T14:00:58+00:00
+layout: post
+categories:
+---
+
+
 # DHCP nedir?
 
 DHCP (Dynamic Host Configuration Protocol), bir ağa bağlanmak isteyen cihazların dinamik konfigürasyonunu yapılmasını sağlar.
