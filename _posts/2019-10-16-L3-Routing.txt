@@ -1,0 +1,278 @@
+---
+
+title: Layer3 Routing ve Protokolleri
+date: 2019-07-14T21:04:00+00:00
+
+layout: post
+
+categories:
+
+---
+
+
+# Layer3 Routing ve Protokolleri
+ 
+Routing işlemi Layer3 cihazlarda çalışan ve gelen paketleri nereye gönderileceğini karar vermesine yardımcı olan bir yapıdır.
+
+Temel olarak 3 çeşidi vardır:
+
+    Static Routing
+    Default Routing
+    Dynamic Routing
+
+# Static Routing
+
+Manuel olarak gelen paketleri nereye yönlendirebileceğimizi ayarlayabildiğimiz bir routing türüdür.
+Router’lar içerisinde routing table oluşturulur. Bu tabloya göre yönlendirme yapılır.
+
+# Avantajları:
+
+    Gelen paketleri nereye yönlendireceğini seçebildiğimiz için güvenlidir.
+    Routerlar arası bant genişliği kullanılmaz.
+
+# Dezavantajları:
+
+    Büyük networklerde her bir router tek tek yapılandırılması ve routing table oluşturulması gerektiği için zahmetli bir iştir.
+    Adminin topolojiye hakim olması gerekmektedir yada yeni bir admin geldiği zaman topolojiyi tam olarak öğrenmesi gerekmektedir.
+
+# Konfigürasyon
+
+[![tology1.png](https://i.postimg.cc/L8QDfWhK/tology1.png)](https://postimg.cc/9DTyHJGJ)
+
+Resimdede görüldüğü gibi basit bir topoloji üzerinde static routing kongigürasyonu yapıcam.
+PC1 10.10.1.0/24 ağına dahil bir cihaz
+PC2 10.10.2.0/24 ağına dahil bir cihaz
+Routerlar arası yol ise 10.10.3.0/24 ağı
+
+R1 Konfigürasyon: 
+
+Soldaki R1 router'ın fa0/1 portu diğer komşu router'a bağlı. Bu porta 10.10.3.1 ip adresini atayıp, host'a bağlı porta (fa1/0) 10.10.1.1 ip adresini verdim
+R2 içinde aynı şekilde fa0/1 portuna 10.10.3.2, fa1/0 portuna 10.10.2.1 ip adresini atadım.
+R1 için 10.10.2.0/24 için gelen paketleri 10.10.3.2'ye yönlendirmesini yapıyoruz.
+# R2(conf)# ip route 10.10.2.0 255.255.255.0 20.20.3.2
+R2 içinde 10.10.1.0/24 için gelen paketleri 10.10.3.1'e yönlendirsin istiyoruz.
+# R2(conf)# ip route 10.10.1.0 255.255.255.0 10.10.3.1  
+PC1 üzerinde static olarak 10.10.1.5 ip adresini ve 10.10.1.1 gateway adresini vardim.
+PC2 üzerinde de 10.10.2.5 ip adresi, 10.10.2.1 gateway adresini tanımladım. 
+PC1 üzerinde 10.10.2.5 adresinde traceroute ile baktığımızda aşağıdaki çıktıyı alıyoruz.
+
+[![trace.png](https://i.postimg.cc/9MB0sv6r/trace.png)](https://postimg.cc/8JjT6nPS)
+
+
+
+# Default Routing
+
+Bu routing türü, gelen paketleri bir sonraki router’a(next hop) yönlendirir. Hangi paketin kime ait olduğuna bakmaz, sadece bir sonraki router’a yollar.
+Genellikle Stub Router’larda kullanılır.
+Stub Router: genellikle diğer networklere ulaşmak için sadece bir yolu olan routerlardır.
+Dynamic Routing
+
+Bu routing türü otomatik olarak routing table’daki duruma göre yönlendirme yapar. Dynamic Routing’de network’ün keşfi ve yönlendirme mekanizması için protokoller kullanılır.
+Eğer ağda bir router düşerse hedefe ulaşmak için otomatik rota oluşturabilir.
+
+# Avantajları :
+
+    Configüre etmesi kolay
+    Uzaktaki hedefe en kısa yoldan gitmek ve keşfetmek için ideal.
+    Topoloji değişirse otomatik olarak adapte olur.
+
+# Dezavantaj:
+
+    Komşu cihazlara daha yüksek bant genişliği lazım.
+    Static Routing’den daha az güvenli.
+
+Routing Protokolleri IGP(Interor Gateway Protocol) ve EGP (Exterior Gateway Protocol) olmak üzere temelde ikiye ayrılırlar.
+# IGP : İç networkler yani aynı AS(Otonom sistemler) içerisinde kullanılan routing protokollerine denir.
+# EGP : Networkler arası (AS’ler arası) kullanılan protokllere verilen isimdir.
+
+# Dynamic Routing Protokolleri
+
+# RIP (Routing Information Protokol)
+
+    RIP temel olarak Bellman-Ford algoritmasını kullanır.
+    AD(Administrative Distanca - Yönetim Mesafesi) değeri 120’dir AD: Router’in komşu routera ulaşması için gereken yolları numaralandırarak sınıflandırmasıdır.
+    Yol seçiminde max hop 15’dir
+    30 Saniyede bir güncelleme paketi yollar.
+
+# RIPv1
+
+    Kimlik doğrulama özelliği yoktur.
+    Classful çalışır. Classful: Ip adreslerinde subnet bilgisi bulunmaz.Gelen paketlerin ait oldukları sınıfa göre subnet atar. Subnet Class’ları:
+
+A - 10.0.0.0 ile 10.255.255.255 arası
+
+B - 172.16.0.0 ile 172.31.255.255 arası
+
+C- 192.168.0.0 ile 192.168.255.255 arası …
+
+
+# RIPv2
+
+RIPv1 ile aynı çalışma mantığına sahiptir. Ek olarak RIPv1 de eksik olan özellikler eklenerek geliştirilmiştir.
+Ek olarak gelen özellikler:
+
+    Classles yönlendirme: Subnet mask bilgisi ekleyebilir hale getirilmiştir. (cidr ve vlsm destekler)
+    Kimlik doğrualama özelliği gelmiştir.
+
+# Konfigürasyonu: 
+ Resimdede görüldüğü gibi 3 router'lı bir topoloji var. Bu topolojide Rip kullanacağımız için subnet tanımlaması yapmamıza gerek yok. Bu yüzden örnek olarak seçtiğim ip classı 192.168.0.0/24.
+Örnek olarak sadece R1 konfigürasyonunu yapıcam.
+Yapacağımız konfigürasyonda ilk olarak bağlı olan interfacelere ip tanımlamasını yapıp, sonrasinde rip konfigürasyonu yapıcaz.
+.
+[![topolgy.png](https://i.postimg.cc/FRjgDk6J/topolgy.png)](https://postimg.cc/gX2Z0jmY)
+.
+R1#configure terminal 
+R1(config)#interface fastEthernet 0/0 
+R1(config-if)#ip address 192.168.10.1 255.255.255.0
+R1(config-if)#no shutdown 
+R1(config-if)#exit
+R1(config)#interface fastEthernet 0/2 
+R1(config-if)#ip address 192.168.50.1 255.255.255.0
+R1(config-if)#no shutdown 
+R1(config-if)#exit
+# cihaza bağlı networkleri rip'e ekleme
+R1(config)#router rip
+R1(config-router)#version 1
+R1(config-router)#version 2
+R1(config-router)#network 192.168.10.0
+R1(config-router)#network 192.168.50.0
+R1(config-router)#end
+R1#
+
+Configürasyon bu kadar. Diğer cihazlardada aynı şekilde intterfacelere bağlı oldukları ağa uygun ip adresi verip rip'e nu networkleri tanıttıktan sonra Client'lara ip adresi verip ping atarak test edebilirsiniz.
+Örnek olarak 192.168.60.0/24 ağındaki R2 ve R3 cihazlarının birbirlerine yolladıkları Rip pakerleri.
+
+[![Screenshot-from-2019-10-30-14-39-27.png](https://i.postimg.cc/t4WT1dnP/Screenshot-from-2019-10-30-14-39-27.png)](https://postimg.cc/K1cFwMNv)
+. 
+Topolojideki sol uçtaki PC1 den sağ uçtaki PC2 ye ping atıp, traceroute çıktısına bakalım.
+.
+[![Screenshot-from-2019-10-30-14-39-57.png](https://i.postimg.cc/mgBDHzY5/Screenshot-from-2019-10-30-14-39-57.png)](https://postimg.cc/WhYTR4fG) 
+
+# IGRP ve EIGRP
+
+Cisco’nun geliştirdiği ve sadece cisco cihazlarda çalışabilen bir Dynamic Routing protokolüdür.
+# IGRP
+
+    RIPv1’e bazı özellikler ekleyerek geliştirilmiş bir protokoldür.
+    RIP gibi Classful protokoldür.
+    Max hop sayısı 255’dir.
+    Yönlendirme için sadece hop sayısına bakmaz.
+    RIP’ten farklı olarak hat geçikmesi,bant genişliği, güvenilirlik ve yük durumuda metrik olarak alınır ve routing işlemine bu metriklerle karar verir.
+
+# EIGRP
+
+    Max hop sayısı 224’dür.
+    MD5 Kripto algoritması kullanarak router’lar arası şifreli kimlik doğrulaması ile güvenliği arttırır.
+    Algoritma olarak DUAL(Diffused-Update-Algorithm) kullanır.
+    Yönlendirme hesaplandıktan sonra problem oluşması durumunda önceden hesaplanmış yedek yoldan gider.
+    Routing table’da değişiklik olursa bütün tabloyu değil sadece değişikliği iletir.
+
+# EIGRP Konfigürasyonu:
+
+EIGRP konfigürasyonu RIP ile temel olarak nerdeyse benzer.
+Deneme olarak 3 Routerli bir topoloji kurdum.
+Bu topoloji üzerinde networklere verilen ipler resim üzerinde mevcut.
+.
+[![top.png](https://i.postimg.cc/635psRQv/top.png)](https://postimg.cc/d7pYrhrs)
+.
+Routerler üzerinde intefacelere gerekli ip atamalarını yaptıktan sonra sadece R1 router üzerinde yaptığım konfigürasyon aşağıda:
+R1#configure terminal
+R1(config)#router eigrp 1
+R1(config-router)#network 192.168.10.0 
+R1(config-router)#network 192.168.30.0 
+R1(config-router)#end
+
+Konfigürasyonu inceleyecek olursak:
+# R1(config)#router eigrp 1
+Router'a routing protokolü olarak "eigrp" kullanacağımızı söylüyoruz.
+Son kısımda yazan "1" otonom sistem numarası. Bu benim kendi vermek istediğim numara. İstediğimiz gibi numara veya kelime olarak otonom sistem tanımlayabiliriz. Fakat routing yapacağımız diğer cihazlardada aynı otonom sistem numarası tanımlaması yapmalıyız.
+Wireshark ile inceleme yaptığımızda "eigrp" protokolünün yolladığı "hello" paketleri içerisinde otonom sistem numarası gözüküyor.
+
+# R1(config-router)#network 192.168.10.0
+RIP konfigürasyonunda da yaptığımız gibi üzerinde bulunan ağların bilgisini tanımlıyoruz.
+Classful çalıştığı için subnet bilgisini nerworkün bulunduğu class'ın subnet maskını alıyor.
+.
+[![hello.png](https://i.postimg.cc/BvdfpKK3/hello.png)](https://postimg.cc/d7mftD6N)
+[![trace.png](https://i.postimg.cc/gkcQvDTR/trace.png)](https://postimg.cc/z3MxNn5X)
+.
+
+# show ip route
+[![iproute.png](https://i.postimg.cc/PrBbtfYx/iproute.png)](https://postimg.cc/KRD3f29S)
+.
+Yukarıdaki resimde "D" harfi ile gösterilen satırlan EIGRP ile bulunan networkler.
+Son satırını inceliyecek olurasak; 
+Üzerinde bulunmayan 192.168.40.0/24 networküne ulaşmak için fastEthernet 0/0 'dan 192.168.30.2 üzerinden ulaşabileceğinin bilgisi bulunuyor.  
+
+# OSPF (Open Shortest Path First)
+
+    RIP’in eksikleri gidermek ve geliştirilmek için yapılan bir protokoldür.
+    RIP’in aksine Link-State (Hat Kontrolü) protokolü olarak tasarlanmıştır.
+    Link State yönlendirme protokolleri topolojinin tamamını görebildiği gibii ağ değişikliğinde “Triggered Update” gönderir.
+    Buna göre router’lar ağdaki iki nokta arası tüm yolları öğrendikten sonra SPF(Shotest path first) algoritması ile hangi yolun en iyi olduğuna karar verir.
+    Link State Refresh (Hat Durumu Güncellemesi) denen güncelleme paketlerini 30dk’da bir yollar.
+# OSPF configürasyonu 
+.
+[![topolgy.png](https://i.postimg.cc/FRjgDk6J/topolgy.png)](https://postimg.cc/gX2Z0jmY)
+
+.
+OSPF routing protokolünü aktif hale getirmek için "router ospf"  komutunu kullanıyoruz. Bu komutun yanına "process id" eklememiz gerekiyor.
+Sonrasında cihazın üzerindeki networkleri tanıtırlen network ip adresini girip subnet mask bilgisini (wildcard-mask) giriyoruz.
+Sonrasında area bilgisini eklememiz gereliyor.
+Oluşturulan ilk area, area 0'a yani backbone area'ya bağlanmak zorundadır.
+# router ospf
+
+R3(config)#router ospf 1
+R3(config-router)#network 192.168.30.0 0.0.0.255 area 0
+R3(config-router)#network 192.168.40.0 0.0.0.255 area 0
+R3(config-router)#end
+
+
+# BGP (Border Gateway Protokol)
+
+    EGP Protokolüdür. Bu yüzden IGP routing protokollerinden farklı çalışır.
+    IGP protokollerinden RIP, OSPF, EIGRP gibi protokoller metrik olarak hop count, bant genişliği vs. kullanır. BGP bunun aksine “Path Attribute” (gönderilen her bir paketin hangi hattan gönderileceğine, AS’den AS’ye geçerken ne gibi değişimlere uğrayacağına vs. karar veren yapılar) kullanarak trafik akışını kontrol etmeyi bir routing protokolüdür.
+    BGP de kendi içinde IBGP ve EBGP olarak ikiye ayrılır. Eğer BGP protokolü farklı AS’ler arasında çalışıyorsa buna EBGP, Aynı AS içerisinde BGP kullanılıyorsa buna IBGP denir.
+    Taşıma protokolü olarak TCP’yi kullanır.
+    BGP kullanan router 3 tane tablo tutar: 
+Neighbor Table: Router’a direk bağlı olan komşu router’lar 
+BGP Table: Komşulardan aldığı network bilgilerini tutar. 
+IP Routing Table: BGP tablosundan alınan rotaların önerilen rota olup olmadığını kontrolünü-elemesini yapıp tutar. BGP hangi networke nasıl ulaşacağını bu tablodan bakar.
+
+# MPLS (Multi Protocol Label Switching - Çoklu Protokol Etiket Anahtalama)
+
+    MPLS yüksek derecede ölçeklenebilir ve protokolden bağımsız bir bilgi taşıma sistemidir.
+    MPLS ağlarında bilgi paketlerine etiketler atanır ve paket aktarım işlemi paketin içeriğinden bağımsız olarak yalnızca bu etiketlerin içeriklerine bağlı olarak yapılır.
+    MPLS etiketli paketler IP tablosu veya Routing tablosu yerine etiketlere bakarak yönledirme yapar. Bu yüzden çok hızlıdır çünkü CPU harcamaz.
+
+# IS-IS (Intermediate System to Intermediate System)
+
+    Büyük ölçekli ağlarda daha etkili bir IGP protokolüdür.
+    OSI referans modelini referans alarak çalışır.
+    Geniş domainleri alt domainlere ayırarak(area’lar ve sub domainlere) bölerek ölçeklendirme sağlayabilir.
+    Yönlendirmeler bu area’lar içerisinde veya arasında gerçekleşir.
+    Area içerisinde yönlendirme L1 yönlendirme.
+    Aynı domain içerisinde bulunan area’lar içerisindeki yönlendirme L2 yönlendirmedir. 
+L1 Routing: Aynı area içerisindeki cihazlar arasında yapılan yönlendirmedir.L1 router’lar sadece L1 ve L1/L2 routerlar ile komşuluk kurar. Area içerisinde L1 LDS (Layer1 Link-State Database) tutar bu databasede komşuluk bilgilerini tutar. Başka bir area’ya paket yollanacağında yollayamaz, L2-LSD olan cihaza yönlendirir. 
+L2 Routing: Farklı area’lar arası yönlendirmedir. L2 yönlendirme yapancihazlar L2 ve L1/L2 router’lar ile komşuluk kurar. Sadece L2-LSD tutarlar. Bu yüzden area içi yönlendirmeyi nasıl yapacağını bilemez. 
+L1/L2 Routing: Cisco cihazlarda varsayılan mod olarak bulunur. Bu cihazlarda L1 ve L2 routing için 2 adte LSD bulundurur. Bu cihazlar hem area içi hemde area dışı yönlendirme yapabildiğinden backbone(omurga) olarak bilinir.
+
+# VRRP (Virtual Router Redundancy Protocol)
+- IEEE tarfından geliştirilmiş, router yedekliliği sağlayan bir protokoldür.
+- Bir çok router'ı tek bir sanal router gibi davranmasına olanak sağlar.
+- VRRP'de seçilen bir router, sanal ip adresine gelen istekleri işler. Bu router'a master router denir.
+- VRRP yapısında bir tane master router, birden fazla backup router(yedek router) bulunur.
+VRRP'nin avantajları:
+- Redundancy (Yedeklilik): Birden çok routerı default gateway olarak yapıladırmaya izin verir.
+- Load Balancing (Yük Paylaşımı): Cihazların trafiğinin birden fazla router üzerinden iletilmesine imkan saðlar. Veri trafiğini birden fazla router tarafýndan paylaşması router üzerindeki yükü azaltır.
+- 255 tane sanal router tanımlanabilir.
+
+# HSRP (Hot Standby Router Protocol)
+VRRP protokolü gibi birden çok router sanal olarak tek bir router gibi çalışır.
+- Cisco tarafından geliştirilmiş bir protokoldür.
+- HSRP'de bir adet yedek yönlendirici olabilir.
+- Virtual ip/mac adresi ile að içerisindeki routerlerin ip/mac adresi aynı olmaz.
+- Sanal ip'ye sahip cihaz master router olur.
+
+
+ 
+
