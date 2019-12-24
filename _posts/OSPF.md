@@ -1,0 +1,109 @@
+---
+title: "OSPF Routing - Area ve LSA Türleri"
+date: 2019-11-24T14:00:58+00:00
+layout: post
+categories:
+---
+
+
+# OSPF Protokolünde LSA ve Area Türleri
+
+
+# LSA (Link-State Advertisement)
+
+RIP,IGRP ve EIGRP gibi distance vector routing protokolleri ailesine dahil protokollerde yönlendirme kararı, doğrudan bağlı komşu routerlardan alınan bilgiye göre yapılır
+Fakat OSPF gibi link-state(hat durumu) yapan protokoller aynı area içerisindeki cihazların bilgilerinin bulunduğu bir tablo tutar.
+Bu tabloya LSDB ( Likl-state Database) denir.
+Router'lar yönlendirme yapacağı zaman bu tablodaki bilgilere göre nereye yönlendirme yapacağına karar verir.
+Routerlarda bulunan bu LSDB tabloları, aynı tablo içerisinde bulunan cihazlardan gelen LSA paketleri ile oluşturulur.
+LSA paketleri periyodik olarak değil topoloji üzerinde bir değişiklik olduğu zaman yollanır.
+LSDB'lerin verimli kullanılması ve router'lar için gerekmicek bilgilerin yollanmaması için LSA paketleri kendi içerisinde türlere ayrılmıştır.
+Bu türlere geçmeden önce OSPF ağında görev alan router türlerine bakalım:
+# OSPF Router Türleri
+#Internal Router: 
+Aynı area'da bulunan ve aynı LSDB'ye sahip routerlara denir.
+#Backbone Router: 
+Area 0'a yani backbone area'ya bağlı routerlara backbone router adı verilir.
+# ABR ( Area  Border Router):
+ABR'lar farklı area'lar arasında bağlantı sağlayan router'lardır.
+Kısacası bir portu bir areaya, başka bir portu başka bir alana bağlı router.
+Bağlı oldukları her alan için bir LSDB'ye sahiptir.
+ABR'lar bulundukları arealar ile ilgili bilgileri "summary route" biçiminde diğerlerine duyurur.
+ABR'ler routing bilgisini ilk olarak backbone'a iletirler. Daha sonra bu routing bilgisi backbone tarafından diğer ABR'lara iletilir.
+# ASBR (Autonomous-System Border Router)
+En az bir arayüzü dış networke bağlı olan router'dır.
+Bu network farklı bir routing protokolü çalıştıran bir networktür.
+Böylece ASBR'lar OSPF harici network bilgisini OSPF networküne taşıyan veya tam tersini yapan cihazdır.
+
+#DR(Designated Router)
+OSPF networklerinde; network bilgisini diğer cihazlara göndermekle yükümkü cihazdır.
+DR olmayan cihazlardan gelen bilgiler DR Router'da toplanır ve bütün area içerisindeki cihazlara dağıtılır.
+#BDR (Backup-Designated Router)
+DR olan routera ulaşılamaması gibi durumlarda yerine DR olarak geçicek cihazdır.
+DR'da bulunan bilgiler BDR'da da bulunur.
+
+Router Türlerini daha iyi anlamak için aşağıdaki topolojiyi inceleyebilirsiniz.
+
+[![ospf-r1.gif](https://i.postimg.cc/y8Ryb57H/ospf-r1.gif)](https://postimg.cc/hXSmJ2Jy)
+
+# LSA türleri
+
+# Router LSA (Type 1)
+Her router kendi areası içerisindeki cihazlar için oluşturdukları LSA'lerdir.
+Sadece area içerisinde yollanan LSA'dir.
+Bu LSA sayesinde aynı area içerisindeki cihazlar birbirleri hakkındaki bilgileri öğrenir.
+
+# Network LSA (Type 2)
+Network LSA'ler DR router tarafından dağıtılır.
+Yukarıda DR için yaptığımız açıklama bu LSA türü için geçerlidir. 
+Area içerisindeki network bilgilerini toplayıp dağıtmakla yükümlü cihazların gönderdikleri paketler Network LSA'dir.
+
+# ABR Summary LSA (Type 3)
+ABR routerlar tarafından dağıtılan LSA'lerdir.
+Bir area içerisindeki networkler diğer alanlara ABR Summary Lsa olarak dağıtılır.
+Burdaki ABR routerlar bağlı oladukları her area için LSDB tutar. 
+Fakat yukarıdada belirttiğim gibi LSA türlerinin amaçı LSDB boyutlarının büyümemesini istememizdi.
+Bu yüzden ABR cihazlar Type-1 ve Type-2 LSA bilgilerini değil, kendi oluşturdukları Type-3 LSA bilgilerini area'lara yollar.
+Bu sayede bir area'da bulunan router kendi alanu dışındaki router'a olan uzaklığını vs. gibi bilgileri değil sadece o alandaki network bilgilerini ve oraya ulaşmak isterde nereye yollaması gerektiğinin bilgisini alır.
+
+# ASBR Location LSA(Type 4)
+ASBR Location LSA'leri ABR routerları tarafından eğer networkte ASBR router bulunuyorsa, kendi area'larına bu ASBR router'a ulaşmak(Dış networke çıkmak için) için gerekli olan rota hakkında bilgi verirler.
+
+# ASBR Summary LSA(Type 5): 
+OSPF networkü dışındaki networklere ilişkin routing bilgisi ASBR'ler vasıtasıyla ASBR Summary LSA'leri ile bildirilirler. 
+Buna redistribution da denir.
+Cihazlar üzerinde OSPF dışında bir routing protokolü olabileceğinden bahsetmiştik.
+Bu çalışmakta olan routing protokollerine birbirlerine redestribution yaptırdığımızda OSPF networkü dışına nasıl gideceğimizi öğrenip dış network ile iletişlimi sağlayabiliriz.
+
+
+# OSPF Area Türleri
+
+OSPF'te standart area tiplerinin dışında özel durumlar için stub, totally stubby ve not-so-stubby area(NSSA) ve totally NSSA tiplerini kullanır.
+Tüm stub areların amacı rotaların stub area içerisindeki routerlara öğretip, summary ve external lsa'lerin sürekli yollanıp trafiği etkilemesini önlemektir.
+Bu sayede LSA paketleri daha az yollanarak gereksiz bant genişliği kullanımı önlenmiş olur. Aynı zamanda LSDB ve routing tablolarıda küçülecektir.
+
+# Standart Area 
+Varsayılan link updatelerini, summary ve external rotaları kabul eder.
+
+# Backbone Area
+Tüm area’ların bilgi paylaşmak için bağlı oldukları merkez area’dır. “area 0” olarak tanımlanır. Standart OSPF area’ların tüm özelliklerini taşırlar.
+
+# Stub Area
+OSPF area dışındaki networkler ile ilgili bilgileri/LSA'leri kabul etmez. Yani type4 ve type5 LSA'ler bloklanır.
+Stub area’dan sorumlu ABR type3 summary LSA ile default rota’yı stub areadaki router’lara öğretir.
+Stub area router’lar otonom sistem dışına veri göndermek için öğrendikleri default rota’yı kullanırlar.
+Area dışına iletişim yapılmadığı için stub areada ASBR router olmaz. Sadece ABR router'lar bazı durumlarda ASBR olabilir.
+
+# Totally Stub area
+Kendi area’ları dışındaki networklere ait rotaları kabul etmezler. 
+Yani type3 ve type4 summary, type5 external LSA’ler  ABR tarafından bloklanır. 
+Bu area’da sadece default rota’nın öğretilmesinde type3 summary LSA kullanılır.
+
+# Not so Stubby Area (NSSA)
+OSPF otonom sistemi dışındaki rotaların OSPF otonom sistemine gönderilmesine izin verir.
+Yani NSSA area içerisinde ASBR router bulunur ve bu router type7 LSA'leri NSSA area içerisinde dolaştırır.
+NSSA ile diğer arealar arasındaki iletişimi sağlayan ABR router'lar aldığı type7 LSA'leri iletemez. Bu yüzden bunları type5 LSA'lere dönüştürüp diğer arealara ileterel OSPF otonom sistemindeki diğer areaların OSPF otonom sistemi sışındaki networkleri öğrenmesini sağlar.
+
+# Totally NSSA
+Tip 3 LSA’lerin iletimine izin verilmeyen NSSA’lerdir, diğer area network’lerine ulaşırken default rota kullanır.
+

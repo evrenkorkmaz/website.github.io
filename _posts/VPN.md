@@ -1,0 +1,82 @@
+---
+title: "VPN"
+date: 2019-12-08T14:00:58+00:00
+layout: post
+categories:
+---
+
+
+# VPN (Virtual Private Network) Nedir? 
+
+VPN uzaktan erişim yoluyla farklı ağlara bağlanmayı sağlayan bir internet teknolojisidir.
+VPN sanal bir ağ uzantısı kullandığı için (P2P), VPN ile ağa bağlanan bir cihaz fiziksel olarak o ağa bağlıymış gibi ağı kullanabilir.
+Bu sayede VPN ile ağa bağlı kişi, o ağın özelliklerini (güvenlik, yönetim vs.) kullanabilir.
+Kısaca VPN internet yada açık bir ağ üzerinden başka bir özel ağa bağlıymış gibi bu ağı kullanmamızı sağlayan bir bağlantı türü.
+VPN kullanmak isteyen kişi, VPN ile P2Pbir bağlantı kurar. Kaynak yada uzaktan erişime geçmek istediği sunucu kimlik bilgilerini kontrol eder ve doğrulama sonrasında client ile uzaktan erişime geçtiği sunucu arasında veri akışı gerçekleşir.
+Özel ağ bağlantısını taklit etmek için, gönderilen veriler gizlilik amacıyla şifrelenir. Paylaşılan veya ortak ağda ele geçirilen paketlerin şifreleri, şifreleme anahtarları olmadan çözülemez. Özel ağ verilerinin kapsüllendiği ve şifrelendiği bağlantı VPN bağlantısı olarak bilinir. 
+
+# VPN neden Kullanılır?
+
+VPN kullanımındaki en büyük amaç güvenlik. İki nokta arasında veriler şifrelenmiş bir şekilde yollandığı için başkası tarafınfan bu trafiğin izlemesi oldukça zor.
+Zaten VPN kullanan şirketler bu tarz sorunların yaşanmaması için önceden aldıkları güvenlik önlemleri mevcut olacaktır.
+Güvenlik için ilk olarak ağı kullanmak isteyen client ile bağlanmak isteği server arasında bir firewall kullanılabilir.
+Sunucuya erişmek isteyen client ile olarak firewall ile kimlik doğrulama işlemini geçmesi gerekiyor. Eğer firewall'un engellemesi gerekecek bir durum yoksa sonrasında sunucu ile iletişim geçilebilir.,
+
+Güvenlik dışında VPN kullanılabilecek alan ise gizliliktir. VPN bize şifreli ve güvenli bir internet bağlantısı sunuyor. Sadece başka bir özel ağa ulaşmak için değil kimliğimizi gizlemek içinde VPN kullanabiliriz.
+Bir başka kullanım alanı yasaklı sitelere erişim. VPN ile aslında kendi bilgisayarımızdan değilde VPN sunucusu üzerinden bağlantı kurduğumuz için aslında ulaşmak istediğimiz yerlere bizim bilgisayarımız değil vpn sunucu yapıyor. Bu sayede kendi ülkemizde erişimi olmayan bir siteye ülke dışından bu siteye erişimi olan bir yerden VPN bağlantısı ile erişimimizi sağlayabiliriz.
+
+# Kimlik doğrulama (Authentication)
+
+VPN bağlantılarında 3 çeşit kimlik doğrulama yapılabilir. 
+
+
+# PPP (Peer-to-Peer Protocol) Kimlik Doğrulama
+VPN sunucusuna bağlanmak isteyen bir client PPP kulanıcı düzeyinde kimlik doğrulama özelliği kullanarak doğrular ve VPN sunucusu, clientın uygun yetkilendirmeye sahip olduğunu doğrular.
+Karşılıklı kimlik doğrulama yapılırsa client'ta vpn sunucusu için kimlik doğrulaması yapar. Böylece VPN sunucusu olarak kendini tanıtan sunuculara karşı bir koruma bağlanır.
+
+# Internet Key Exchange (IKE - Internet Anahtar Değişimi)
+Internet Protokolü güvenliği (IPsec) güvenlik ilişkisi oluşturmak üzere VPN istemcisi ve VPN sunucusu, bilgisayar sertifikaları veya önceden paylaşılan bir anahtar değişimi için IKE protokolünü kullanır. 
+Her iki durumda da VPN istemcisi ve sunucusu, birbirlerinin kimliklerini bilgisayar düzeyinde doğrular. 
+Bilgisayar sertifikası kimlik doğrulaması çok daha güçlü bir kimlik doğrulama yöntemi olduğundan daha fazla önerilir. 
+Bilgisayar düzeyinde kimlik doğrulama yalnızca L2TP(Layer 2 Tunelling Protocol)/IPsec bağlantıları için uygulanır. 
+
+# Veri kaynağı için kimlik doğrulama ve veri bütünlüğü
+VPN bağlantısı üzerinden gönderilen verinin, bağlantının diğer ucundan gönderilmiş olduğunu ve aktarım sırasında değiştirilmediğini onaylamak için, 
+veride yalnızca gönderenin ve alanın bildiği bir şifreleme anahtarına dayalı şifreleme sağlama toplamı bulunur. 
+Veri kaynağı için kimlik doğrulama ve veri bütünlüğü yalnızca L2TP/IPsec bağlantılarında kullanılabilir.
+
+# VPN Tünel Protokolleri
+
+Tünel oluşturma bir protokol türündeki bir paketin başka bir protokol datagramı içerisinde kapsüllenmesine olanak sağlar.
+Örneğin VPN, ip paketlerini internet gibi ortak bir ağ üzerinden kapsüllemek için PPTP kullanır.
+VPN; PPTP,L2TP,SSTP gibi tünelling protokollerini kullanablir. 
+Bu protokoller PPP ( Peer-to-Peer Protocol) için belirtilen özellikleri kullanır.
+PPP, IP paketlerini PPP çerçevesi(frame) içine kapsüller ve ardından kapsüllenen paketleri P2P bağlantı üzerinden yollar.
+
+# PPTP ( Peer-to-Peer Tunelling Protocol) 
+
+PPTP, bir veya birden çok protokol tarafından trafiğin şifrelenmesinin ardından IP ağı veya internet gibi ip üzerinden gönderilmesi gereken bir paketi IP üst bilgisi ile kapsüllenmesini sağlar.
+Uzaktan erişim ve siteden siteye VPN bağlantısı için kullanılabilir.
+PPTP, ağ üzerinden bir aktarım yaptığında bu paketleri PPP çerçeveleri ile IP datagramları(İnternet üzerinde yönlendirilmesi için gerekli bilgiler) ekleyerek kapsüller.
+PPTP, tünel yönetimi için GRE'nin ( Generic Routing Encapsulation - Genel Yönlendirme Kapsüllemesi) değiştirilmiş bir sürümünü kullanır.
+# *GRE: Cisco Systems tarafından geliştirilen ve sanal noktadan noktaya bağlantılar veya bir İnternet Protokolü ağı üzerinden noktadan çok noktaya bağlantılar içinde çok çeşitli ağ katmanı protokollerini barındırabilen bir tünel protokolüdür.
+Ayrıca kapsüllenen PPP Frame'leri şifrelenebilir ve sıkıştırılabilir.
+
+# L2TP ( Layer 2 Tunelling Protocol ) ve L2tp/IPsec
+Diğer protokollerden farkli olarak L2TP üzerinden geçen trafik şifrelenme sağlamaz.
+Bu nedenle iletim öncesi verileri şifrelemek için IPsec kullanılabilir.
+VPN uyumlu tüm modern cihazlar ve işletim sistemlerinde dahili olarak L2TP/IPsec bulunur. 
+Kurulumu hızlıdır ve PPTP kadar kolaydır, fakat protokol NAT firewall tarafından kolaylıkla engellenebilen UDP port 500 kullandığı için bazı problemler oluşabilir.
+Bu yüzden firewall ile kullanıldığında port yönlendirme gerekebilir.
+
+# Site-to-Site VPN
+Bir çok şirketin ana ofis dışında lokasyonlarıda vardır.Bu VPN türü bütün lokasyonları toplamak ve bunları aynı networkteymiş gibi kullanılmasını sağlar.
+
+# Open VPN
+
+Open VPN açık kaynaklı bir VPN türüdür.
+SSLv3/TLSv1 protokollerini ve OpenSSL kütüphanesi ve diğer teknolojiler kombine edilerek kullanılır.
+Yüksek oranda yapılandırılabilir ve UDP portunda çalışır böylece diğer servisler tarafından engellenmesi oldukça zordur.
+3DES, AES, Camellia, Blowfish, CAST-128 gibi şifreleme algoritmalarını kullanabilir.
+OpenVPN default olarak 128-bit Blowfish ile birlikte gelir. Genellikle güvenli kabul edilir fakat bazı eksikleri/açıkları mevcuttur.
+
