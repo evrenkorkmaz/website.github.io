@@ -33,7 +33,7 @@ sw1 (config-if)# no ip dhcp snooping trust -->  Portu untrasted olarak işaretle
 
 # DHCP Snooping Testi
 .
-[url=https://hizliresim.com/vREx1S][img]https://i.hizliresim.com/vREx1S.png[/img][/url]
+[url=https://hizliresim.com/vREx1S](https://i.hizliresim.com/vREx1S.png)
 .
 
 Resimde  göründüğü gibi ortadaki swithc'e bağlı 2 router, 2 tane de host görüyorsunuz.
