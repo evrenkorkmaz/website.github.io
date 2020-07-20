@@ -34,7 +34,7 @@ sw1 (config-if)# no ip dhcp snooping trust -->  Portu untrasted olarak işaretle
 # DHCP Snooping Testi
 .
 
-[![vREx1s](url=https://hizliresim.com/vREx1S)](https://i.hizliresim.com/vREx1S.png)
+[![Topology](url=https://hizliresim.com/vREx1S)](https://i.hizliresim.com/vREx1S.png)
 .
 
 Resimde  göründüğü gibi ortadaki swithc'e bağlı 2 router, 2 tane de host görüyorsunuz.
@@ -101,11 +101,11 @@ R2(config-if)#ip address 192.168.10.65 255.255.255.192
 # R2(dhcp-config)#default-router 192.168.10.65
 
 
-[url=https://hizliresim.com/ynbf1L][img]https://i.hizliresim.com/ynbf1L.png[/img][/url]
+[![Test1](url=https://hizliresim.com/ynbf1L)](https://i.hizliresim.com/ynbf1L.png)
 
 2 ayrı hosttanda dhcp isteklerinde bulunuyoruz. Göründüğü gibi farklı dhcp serverlardan gelen istekler var fakat ilk geleni kabul ediyor.
 
-[url=https://hizliresim.com/CM9IBD][img]https://i.hizliresim.com/CM9IBD.png[/img][/url]
+[![Test2](url=https://hizliresim.com/CM9IBD)](https://i.hizliresim.com/CM9IBD.png)
 
 Wiresharktan paket incelemesi yaptığımızda 2 serverdanda DHCP Offer paketlerinin çıktığını gözlemleyebiliriz.
 
